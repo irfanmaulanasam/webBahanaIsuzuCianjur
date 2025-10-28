@@ -13,13 +13,32 @@
   },
   "banner": {
     "image": "/assets/banner.jpg",
-    "headline": "Discover the Power of Isuzu",
-    "cta": "Lihat Produk"
+    "headline": "Solusi Armada Euro4 yang Siap Kerja Keras",
+    "subheadline": "Dari pick up hingga truk berat, Isuzu hadir dengan standar emisi Euro4 — lebih hemat, ramah lingkungan, dan tangguh di segala medan.",
+    "cta": "Konsultasi Armada Sekarang"
   },
-  "about":{
-    "title":"Tentang Kami",
-    "d":"Informasi perusahaan dan sejarah singkat.."
-
+  "about": {
+    "title": "Tentang Kami",
+    "description": [
+      "Setiap hari, ribuan armada Isuzu bergerak di seluruh Indonesia, membawa logistik, harapan, dan semangat bisnis dari kota hingga pelosok.",
+      "Kami hadir bukan hanya menjual kendaraan, tapi menjadi mitra bagi pelaku usaha transportasi dan logistik untuk terus melaju di era Euro4.",
+      "Peralihan ke teknologi Euro4 bukan sekadar perubahan mesin — ini tentang efisiensi, tanggung jawab, dan keberlanjutan. Kami memastikan Anda mendapat pendampingan penuh dari konsultasi, pembiayaan, hingga layanan purna jual.",
+      "Bersama Isuzu Bandung, Anda tidak hanya membeli kendaraan, tapi membangun sistem armada yang siap bersaing dan tumbuh."
+    ],
+    "vision": "Menjadi mitra utama solusi armada Euro4 di Indonesia yang efisien, ramah lingkungan, dan berdaya saing tinggi.",
+    "mission": [
+      "Memberikan solusi armada tepat guna untuk setiap kebutuhan bisnis.",
+      "Mendukung transisi ke Euro4 melalui edukasi dan layanan teknis.",
+      "Menjaga keandalan armada pelanggan lewat layanan purna jual terpercaya.",
+      "Berperan dalam transportasi berkelanjutan dan ramah lingkungan."
+    ],
+    "values": [
+      { "name": "Tangguh", "desc": "Isuzu dikenal karena ketangguhan mesin dan layanannya — siap menghadapi tantangan di medan apa pun." },
+      { "name": "Jujur & Terpercaya", "desc": "Kepercayaan pelanggan adalah prioritas kami. Transparansi dalam pelayanan menjadi nilai utama." },
+      { "name": "Peduli", "desc": "Kami memahami bisnis Anda, karena itu kami hadir sebagai mitra yang peduli terhadap keberhasilan Anda." },
+      { "name": "Inovatif", "desc": "Kami terus beradaptasi menghadirkan solusi armada yang relevan dan efisien." },
+      { "name": "Kolaboratif", "desc": "Kami percaya kesuksesan hadir lewat kerja sama yang baik antara pelanggan, tim, dan komunitas." }
+    ]
   },
   "products": [
     {
@@ -28,41 +47,102 @@
       "category": "LCV",
       "image": "/assets/products/traga.jpg",
       "specs": "/assets/specs/traga.pdf",
-      "brochure": "/assets/brochure/traga.pdf"
+      "brochure": "/assets/brochure/traga.pdf",
+      "description": "Pick up tangguh untuk distribusi ringan. Irit BBM, daya angkut besar, dan mudah dirawat — cocok untuk usaha niaga harian Anda."
+    },
+    {
+      "id": "cv2",
+      "name": "Isuzu Elf",
+      "category": "LCV",
+      "image": "/assets/products/elf.jpg",
+      "specs": "/assets/specs/elf.pdf",
+      "brochure": "/assets/brochure/elf.pdf",
+      "description": "Pilihan tepat untuk usaha angkutan penumpang maupun barang. Tangguh, efisien, dan sesuai standar Euro4."
+    },
+    {
+      "id": "cv3",
+      "name": "Isuzu GIGA",
+      "category": "HCV",
+      "image": "/assets/products/giga.jpg",
+      "specs": "/assets/specs/giga.pdf",
+      "brochure": "/assets/brochure/giga.pdf",
+      "description": "Truk berat Euro4 yang bertenaga, hemat bahan bakar, dan kuat menghadapi berbagai kondisi jalan."
     }
   ],
   "services": [
-    { "title": "Booking Service", 
-    "description": "Layanan perawatan kendaraan",
-     "icon": "wrench" },
-    { "title": "BIB (Bengkel Isuzu Berjalan)", 
-    "description": "Layanan servis panggilan", 
-    "icon": "truck" }
+    { 
+      "title": "Konsultasi Armada", 
+      "description": "Bantu Anda memilih tipe kendaraan sesuai kebutuhan operasional dan bisnis.", 
+      "icon": "users"
+    },
+    { 
+      "title": "Booking Service", 
+      "description": "Layanan perawatan kendaraan resmi dengan mekanik bersertifikat.", 
+      "icon": "wrench"
+    },
+    { 
+      "title": "BIB (Bengkel Isuzu Berjalan)", 
+      "description": "Servis panggilan langsung ke lokasi pelanggan untuk efisiensi waktu.", 
+      "icon": "truck"
+    },
+    {
+      "title": "Suku Cadang Resmi",
+      "description": "Ketersediaan spare part asli Isuzu untuk menjaga performa kendaraan.",
+      "icon": "cog"
+    }
   ],
   "outlets": [
     {
+      "name": "Isuzu Dealer Bandung",
+      "address": "Jl. Soekarno-Hatta No. 123, Bandung",
+      "mapsLink": "https://maps.google.com?q=Isuzu+Dealer+Bandung"
+    },
+    {
       "name": "Isuzu Dealer Jakarta",
-      "address": "Jl. Gatot Subroto No. 15",
+      "address": "Jl. Gatot Subroto No. 15, Jakarta",
       "mapsLink": "https://maps.google.com?q=Isuzu+Dealer+Jakarta"
     }
   ],
   "promotion": [
-    { "title": "Promo Akhir Tahun", 
-    "image": "/assets/promo/akhir-tahun.jpg",
-    "details": "Diskon hingga 15%" }
+    { 
+      "title": "Promo Akhir Tahun", 
+      "image": "/assets/promo/akhir-tahun.jpg",
+      "details": "Diskon hingga 15% untuk pembelian unit Euro4 selama periode Oktober–Desember 2025."
+    },
+    {
+      "title": "Trade-In Program",
+      "image": "/assets/promo/trade-in.jpg",
+      "details": "Tukar kendaraan lama Anda dengan unit Euro4 baru dan dapatkan potongan harga spesial."
+    }
   ],
   "testimonies": [
-    { "name": "Budi Santoso",
-    "text": "Pelayanan cepat dan ramah!", 
-    "image": "/assets/testimony/budi.jpg" }
+    { 
+      "name": "Andri – Owner Jasa Logistik Bandung",
+      "text": "Awalnya ragu pindah ke Euro4, tapi ternyata efisiensi bahan bakarnya bikin biaya operasional jauh lebih ringan.",
+      "image": "/assets/testimony/andri.jpg"
+    },
+    { 
+      "name": "PT Cahaya Transport",
+      "text": "Unit GIGA Euro4 dari Isuzu benar-benar kuat di medan berat, dan perawatannya mudah.",
+      "image": "/assets/testimony/cahaya.jpg"
+    },
+    { 
+      "name": "Budi Santoso",
+      "text": "Pelayanan cepat dan ramah! Layanan after sales-nya juga selalu siap bantu.",
+      "image": "/assets/testimony/budi.jpg"
+    }
   ],
   "contact": {
     "phone": "+62 812 3456 7890",
     "email": "dealer@isuzu.co.id",
     "social": {
       "facebook": "https://facebook.com/isuzuindonesia",
-      "instagram": "https://instagram.com/isuzuindonesia"
-    }
+      "instagram": "https://instagram.com/isuzuindonesia",
+      "whatsapp": "https://wa.me/628123456789"
+    },
+    "address": "Jl. Soekarno-Hatta No. 123, Bandung",
+    "mapsLink": "https://maps.google.com?q=Isuzu+Dealer+Bandung"
   }
 }
+
 
