@@ -1,0 +1,68 @@
+{
+  "header": {
+    "logoRPRI": "/assets/logo-rpri.png",
+    "logoDealer": "/assets/logo-dealer.png",
+    "menu": [
+      { "title": "Home", "path": "/" },
+      { "title": "About Us", "path": "/about" },
+      { "title": "Product", "path": "/products" },
+      { "title": "Services", "path": "/services" },
+      { "title": "Outlet", "path": "/outlet" },
+      { "title": "Search", "path": "/search" }
+    ]
+  },
+  "banner": {
+    "image": "/assets/banner.jpg",
+    "headline": "Discover the Power of Isuzu",
+    "cta": "Lihat Produk"
+  },
+  "about":{
+    "title":"Tentang Kami",
+    "d":"Informasi perusahaan dan sejarah singkat.."
+
+  },
+  "products": [
+    {
+      "id": "cv1",
+      "name": "Isuzu Traga",
+      "category": "LCV",
+      "image": "/assets/products/traga.jpg",
+      "specs": "/assets/specs/traga.pdf",
+      "brochure": "/assets/brochure/traga.pdf"
+    }
+  ],
+  "services": [
+    { "title": "Booking Service", 
+    "description": "Layanan perawatan kendaraan",
+     "icon": "wrench" },
+    { "title": "BIB (Bengkel Isuzu Berjalan)", 
+    "description": "Layanan servis panggilan", 
+    "icon": "truck" }
+  ],
+  "outlets": [
+    {
+      "name": "Isuzu Dealer Jakarta",
+      "address": "Jl. Gatot Subroto No. 15",
+      "mapsLink": "https://maps.google.com?q=Isuzu+Dealer+Jakarta"
+    }
+  ],
+  "promotion": [
+    { "title": "Promo Akhir Tahun", 
+    "image": "/assets/promo/akhir-tahun.jpg",
+    "details": "Diskon hingga 15%" }
+  ],
+  "testimonies": [
+    { "name": "Budi Santoso",
+    "text": "Pelayanan cepat dan ramah!", 
+    "image": "/assets/testimony/budi.jpg" }
+  ],
+  "contact": {
+    "phone": "+62 812 3456 7890",
+    "email": "dealer@isuzu.co.id",
+    "social": {
+      "facebook": "https://facebook.com/isuzuindonesia",
+      "instagram": "https://instagram.com/isuzuindonesia"
+    }
+  }
+}
+
