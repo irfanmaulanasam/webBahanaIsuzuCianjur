@@ -3,10 +3,10 @@ import { createBrowserRouter } from 'react-router-dom'
 import App from './App'
 import Home from './pages/Home'
 import About from './pages/About'
-import Products from './pages/Products'
+import Products from './pages/Product'
 import Services from './pages/Services'
 import Outlet from './pages/Outlet'
-import Search from './pages/Search'
+import SearchPage from './pages/SearchPage'
 import Contact from './pages/Contact'
 
 export const router = createBrowserRouter([
@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
       { path: 'products', element: <Products /> },
       { path: 'services', element: <Services /> },
       { path: 'outlet', element: <Outlet /> },
-      { path: 'search', element: <Search /> },
+      // { path: 'search', element: <SearchPage /> },
       { path: 'contact', element: <Contact /> }
     ]
   }

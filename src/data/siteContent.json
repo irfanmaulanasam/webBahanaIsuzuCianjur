@@ -1,14 +1,11 @@
 {
   "header": {
-    "logoRPRI": "/assets/logo-rpri.png",
-    "logoDealer": "/assets/logo-dealer.png",
     "menu": [
       { "title": "Home", "path": "/" },
       { "title": "About Us", "path": "/about" },
       { "title": "Product", "path": "/products" },
       { "title": "Services", "path": "/services" },
-      { "title": "Outlet", "path": "/outlet" },
-      { "title": "Search", "path": "/search" }
+      { "title": "Outlet", "path": "/outlet" }
     ]
   },
   "banner": {
@@ -40,6 +37,13 @@
       { "name": "Kolaboratif", "desc": "Kami percaya kesuksesan hadir lewat kerja sama yang baik antara pelanggan, tim, dan komunitas." }
     ]
   },
+  "articles": [
+  {
+    "title": "Isuzu Euro4 Hadir di Cianjur",
+    "description": "Dealer resmi Isuzu Cianjur kini menyediakan unit-unit Euro4 terbaru dengan layanan purna jual terbaik.",
+    "image": "/assets/news/euro4.jpg"
+  }
+],
   "products": [
     {
       "id": "cv1",
@@ -142,7 +146,7 @@
       "instagram": "https://instagram.com/isuzucianjur",
       "whatsapp": "https://wa.me/6281221548054"
     },
-    "address": "Jl. Soekarno-Hatta No. 123, Bandung",
+    "address": "Jl. Raya Bandung No. 138, Sadewata Bojong Karangtengah Cianjur, Jawa Barat",
     "mapsLink": "https://maps.app.goo.gl/AMQg6Fvz416drYVA9"
   }
 }
