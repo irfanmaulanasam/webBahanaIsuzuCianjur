@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import data from "../data/siteContent.json";
 import { Menu, X, Search } from "lucide-react";
@@ -27,16 +27,19 @@ export default function Header() {
       navigate(`/search?q=${encodeURIComponent(query)}`);
       setSearchMode(false);
       setQuery("");
+      // Reset query untuk mencegah pencarian ulang
+      // setQuery(""); 
     }
   };
 
   return (
-    <header className="container bg-white shadow-sm sticky top-0 left-50 z-50">
+    <header className="bg-white shadow-sm sticky top-0 z-50">
       {/* === DESKTOP === */}
-      <div className="hidden md:flex container h-16 items-center justify-between">
+      {/* 🟢 Disesuaikan dengan max-w-7xl mx-auto px-6 agar konsisten dengan Footer */}
+      <div className="hidden md:flex h-16 items-center justify-around max-w-7xl mx-auto px-6">
         {/* Left: Dealer Logo */}
         <img src={logoDealer} alt="Dealer" className="h-8" />
-
+        
         {/* Center: Menu atau Search */}
         {!searchMode ? (
           <div className="flex items-center gap-6">
@@ -87,29 +90,25 @@ export default function Header() {
       </div>
 
       {/* === MOBILE === */}
+      {/* Logo Dealer diposisikan di tengah menggunakan absolute positioning. */}
+      {/* Search dihilangkan dari header dan dipindah ke Sidebar. */}
       <div className="flex md:hidden items-center justify-between h-14 px-4 relative">
         {/* Left: Hamburger */}
         <button onClick={() => setOpen(true)} className="p-2">
           <Menu className="w-6 h-6 text-slate-700" />
         </button>
 
-        {/* Center: Dealer Logo */}
-        <img src={logoDealer} alt="Dealer" className="h-8 mx-auto p-5" />
+        {/* Center: Dealer Logo (Diposisikan di tengah) */}
+        <div className="absolute left-1/2 transform -translate-x-1/2">
+            <img src={logoDealer} alt="Dealer" className="h-8" />
+        </div>
 
-        {/* Right: Search + RPRI Logo */}
-        <div className="flex items-center gap-3">
-          {!searchMode && (
-            <button
-              onClick={() => setSearchMode(true)}
-              className="p-2 rounded-md hover:bg-gray-100"
-            >
-              <Search className="w-5 h-5 text-slate-700" />
-            </button>
-          )}
+        {/* Right: Hanya RPRI Logo (Menggunakan ml-auto agar mendorong ke kanan) */}
+        <div className="flex items-center gap-3 ml-auto">
           <img src={logoRPRI} alt="RPRI" className="h-7" />
         </div>
 
-        {/* 🔹 Mobile Search Overlay */}
+        {/* 🔹 Mobile Search Overlay (TETAP ADA untuk konsistensi ketika diaktifkan di Desktop/atau jika Anda mengaktifkannya kembali) */}
         {searchMode && (
           <div className="absolute inset-0 bg-white flex items-center justify-between px-4 z-50">
             <form onSubmit={handleSearch} className="flex items-center flex-1">
@@ -139,7 +138,7 @@ export default function Header() {
           ></div>
         )}
 
-        {/* Sidebar Menu */}
+        {/* Sidebar Menu (Termasuk Search Form) */}
         <div
           className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ${
             open ? "translate-x-0" : "-translate-x-full"
@@ -151,6 +150,28 @@ export default function Header() {
               <X className="w-5 h-5 text-slate-600" />
             </button>
           </div>
+          
+          {/* 🟢 Form Search Baru di Sidebar */}
+          <form
+            onSubmit={(e) => {
+              handleSearch(e);
+              setOpen(false); // Tutup sidebar setelah submit
+            }}
+            className="flex items-center p-4 border-b space-x-2"
+          >
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Cari produk..."
+              className="flex-1 bg-gray-50 border rounded-md px-3 py-1 outline-none text-sm"
+            />
+            <button type="submit" className="p-1 text-slate-600 hover:text-black">
+              <Search className="w-5 h-5" />
+            </button>
+          </form>
+          {/* 🔴 Akhir Form Search Sidebar */}
+
           <nav className="flex flex-col p-4 space-y-3">
             {data.header.menu.map((m) => (
               <NavLink
