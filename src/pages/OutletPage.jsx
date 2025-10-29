@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { outlets } from "../data/siteContent.json";

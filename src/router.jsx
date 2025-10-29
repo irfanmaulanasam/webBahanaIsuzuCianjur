@@ -7,6 +7,8 @@ import Product from './pages/ProductPage'
 import Services from './pages/Services'
 import Outlet from './pages/Outlet'
 import Contact from './pages/Contact'
+import VehicleCost from './pages/VehicleCost'
+import CreditSimulatorPages from './pages/CreditSimulatorPages'
 
 export const router = createBrowserRouter([
   {
@@ -14,11 +16,13 @@ export const router = createBrowserRouter([
       element: <App />,
       children: [
         { index: true, element: <Home /> },
+        {path: 'vehicle-cost', element: <VehicleCost/> },
         { path: 'about', element: <About /> },
         { path: 'products', element: <Product /> },
         { path: 'services', element: <Services /> },
         { path: 'outlet', element: <Outlet /> },
-        { path: 'contact', element: <Contact /> }
+        { path: 'contact', element: <Contact /> },
+        {path: 'credit simulator', element:<CreditSimulatorPages/> }
     ]
   }
 ])

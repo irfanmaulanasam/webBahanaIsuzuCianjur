@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 export default function CreditSimulator() {
+  
   const [harga, setHarga] = useState(350000000);
   const [dp, setDp] = useState(30);
   const [tenor, setTenor] = useState(48);
@@ -9,6 +10,8 @@ export default function CreditSimulator() {
   const totalPinjaman = harga - (harga * dp) / 100;
   const cicilan =
     (totalPinjaman * (1 + bunga * (tenor / 12))) / tenor;
+  
+  
 
   return (
     <div className="p-4 border rounded-lg bg-gray-50 space-y-3">

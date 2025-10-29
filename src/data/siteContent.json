@@ -5,7 +5,9 @@
       { "title": "About Us", "path": "/about" },
       { "title": "Product", "path": "/products" },
       { "title": "Services", "path": "/services" },
-      { "title": "Outlet", "path": "/outlet" }
+      { "title": "Outlet", "path": "/outlet" },
+      {"title": "Vehicle Cost", "path":"/vehicle-cost"},
+      {"title": "Credit Simulator", "path":"/credit-simulator"}
     ]
   },
   "banner": {
