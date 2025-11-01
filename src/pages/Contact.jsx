@@ -1,7 +1,7 @@
 import React from 'react'
 import {contact} from "../data/siteContent.json"
 
-export default function Products(){
+export default function ContactPage(){
   return (
     <div className="container py-12">
       <h1 className="text-2xl font-bold">Kontak Kami</h1>

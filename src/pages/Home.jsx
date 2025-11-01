@@ -1,4 +1,4 @@
-import React from 'react'
+import { FacebookIcon,InstagramIcon,MessageCircle } from 'lucide-react'
 import data from '../data/siteContent.json'
 import Banner from '../components/Banner'
 import ContactForm from "../components/ContactForm"
@@ -80,17 +80,17 @@ export default function Home(){
             <div className="flex space-x-4 mt-4">
               {data.contact.social.facebook && (
                 <a href={data.contact.social.facebook} target="_blank" rel="noopener noreferrer">
-                  <img src="/assets/icons/facebook.svg" alt="Facebook" className="w-6 h-6" />
+                  <FacebookIcon/>
                 </a>
               )}
               {data.contact.social.instagram && (
                 <a href={data.contact.social.instagram} target="_blank" rel="noopener noreferrer">
-                  <img src="/assets/icons/instagram.svg" alt="Instagram" className="w-6 h-6" />
+                  <InstagramIcon/>
                 </a>
               )}
               {data.contact.social.whatsapp && (
                 <a href={data.contact.social.whatsapp} target="_blank" rel="noopener noreferrer">
-                  <img src="/assets/icons/whatsapp.svg" alt="WhatsApp" className="w-6 h-6" />
+                  <MessageCircle/>
                 </a>
               )}
             </div>

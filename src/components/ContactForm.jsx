@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import {Facebook, Instagram, MessageCircle} from "lucide-react"
+import { useState } from "react"
 
 // Replace the entry keys with your Google Form entry IDs
 const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse'
@@ -43,7 +44,7 @@ export default function ContactForm(){
         <span className="text-sm font-medium">Pesan</span>
         <textarea name="message" value={form.message} onChange={handle} required className="mt-1 block w-full p-2 border rounded h-28" />
       </label>
-      <button type="submit" className="px-4 py-2 bg-[color:var(--isuzu-red)] text-white rounded">Kirim</button>
+      <button type="submit" className="px-4 py-2 bg-isuzu text-white rounded">Kirim</button>
       {status && <p className="mt-3 text-green-600">{status}</p>}
     </form>
   )

@@ -11,7 +11,7 @@
     ]
   },
   "banner": {
-    "image": "/assets/banner.jpg",
+    "image": "https://astraisuzu.co.id/wp-content/uploads/2023/09/02-ISUZU-FTR-2000-Pixel-e1695990006438.jpg",
     "headline": "Solusi Armada Euro4 yang Siap Kerja Keras",
     "subheadline": "Dari pick up hingga truk berat, Isuzu hadir dengan standar emisi Euro4 — lebih hemat, ramah lingkungan, dan tangguh di segala medan.",
     "cta": "Konsultasi Armada Sekarang"
@@ -51,7 +51,7 @@
       "id": "cv1",
       "name": "Isuzu Traga",
       "category": "LCV",
-      "image": "/assets/products/traga.jpg",
+      "image": "https://astraisuzu.co.id/wp-content/uploads/2019/11/Isuzu-Traga-300x300.png",
       "specs": "/assets/specs/traga.pdf",
       "brochure": "/assets/brochure/traga.pdf",
       "description": "Pick up tangguh untuk distribusi ringan. Irit BBM, daya angkut besar, dan mudah dirawat — cocok untuk usaha niaga harian Anda."
@@ -60,7 +60,7 @@
       "id": "cv2",
       "name": "Isuzu Elf",
       "category": "LCV",
-      "image": "/assets/products/elf.jpg",
+      "image": "https://astraisuzu.co.id/wp-content/uploads/2020/01/2022_NMR-_EURO4_Box-Besi-300x300.png",
       "specs": "/assets/specs/elf.pdf",
       "brochure": "/assets/brochure/elf.pdf",
       "description": "Pilihan tepat untuk usaha angkutan penumpang maupun barang. Tangguh, efisien, dan sesuai standar Euro4."
@@ -69,7 +69,7 @@
       "id": "cv3",
       "name": "Isuzu GIGA",
       "category": "HCV",
-      "image": "/assets/products/giga.jpg",
+      "image": "https://astraisuzu.co.id/wp-content/uploads/2020/01/2022_FVR_EURO4_Bak-Besi-300x300.png",
       "specs": "/assets/specs/giga.pdf",
       "brochure": "/assets/brochure/giga.pdf",
       "description": "Truk berat Euro4 yang bertenaga, hemat bahan bakar, dan kuat menghadapi berbagai kondisi jalan."
