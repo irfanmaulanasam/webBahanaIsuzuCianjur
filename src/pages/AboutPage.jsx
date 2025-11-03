@@ -1,6 +1,4 @@
 import {about} from '../data/siteContent.json'
-
-import React from 'react';
 import { Truck, Target, Lightbulb, CheckCircle } from 'lucide-react';
 
 export default function AboutPage() {
