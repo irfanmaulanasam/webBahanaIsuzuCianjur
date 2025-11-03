@@ -1,6 +1,10 @@
 export const IsuzuPrices = {
   "SUV":
   { model: "MU-X", price:"559800000", type:"Sport Utility Vehicle"},
+  "Truck Pick-up":[
+  {model:"Single Cabin MT",price:"413950000", type:"Truck Pick Up"},
+  {model:"Double Cabin MT",price:"524100000", type:"Truck Pick Up"},
+  ],
   "Niaga Berat (HCV)": [
     { model: "FTR T", price:"841340000", type: "High Commercial Vehicle" },
     { model: "FVR L D", price:"922760000", type: "High Commercial Vehicle" },
