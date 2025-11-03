@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import ProductPage from "./pages/ProductPage";
 import OutletPage from "./pages/OutletPage";
 import ServicesPage from "./pages/ServicesPage";
-import AboutPage from "./pages/AboutPAge";
+import AboutPage from "./pages/AboutPAge.jsx";
 import VehicleCost from "./pages/VehicleCost"
 import CreditSimulatorPages from "./pages/CreditSimulatorPages";
 import SearchPage from "./pages/SearchPage";
