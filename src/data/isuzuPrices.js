@@ -46,15 +46,16 @@ export const IsuzuPrices = {
     { model: "Traga Freezer Box", price:"409000000", type: "Low Commercial Vehicle" },
   ],
 };
-
-// Fungsi untuk dapatkan semua tipe unik
 export const getUniqueTypes = () => {
   const types = new Set();
-  Object.values(IsuzuPrices).forEach(group =>
-    group.forEach(item => {
-      console.log(item.type)
-      types.add(item.type)
+
+  Object.values(IsuzuPrices).forEach(group => {
+    if (Array.isArray(group)) {
+      group.forEach(item => types.add(item.type));
+    } else if (group && typeof group === "object") {
+      types.add(group.type);
     }
-  ));
+  });
+
   return Array.from(types);
 };
