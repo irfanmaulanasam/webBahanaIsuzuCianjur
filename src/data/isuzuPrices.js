@@ -1,6 +1,7 @@
 export const IsuzuPrices = {
-  "SUV":
-  { model: "MU-X", price:"559800000", type:"Sport Utility Vehicle"},
+  "SUV":[
+    { model: "MU-X", price:"559800000", type:"Sport Utility Vehicle"},
+  ],
   "Truck Pick-up":[
   {model:"Single Cabin MT",price:"413950000", type:"Truck Pick Up"},
   {model:"Double Cabin MT",price:"524100000", type:"Truck Pick Up"},
@@ -50,7 +51,10 @@ export const IsuzuPrices = {
 export const getUniqueTypes = () => {
   const types = new Set();
   Object.values(IsuzuPrices).forEach(group =>
-    group.forEach(item => types.add(item.type))
-  );
+    group.forEach(item => {
+      console.log(item.type)
+      types.add(item.type)
+    }
+  ));
   return Array.from(types);
 };
