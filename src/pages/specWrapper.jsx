@@ -1,10 +1,10 @@
 // src/pages/SpecWrapper.jsx
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import SpecPage from "../components/SpecPage";
+import SpecPage from "../pages/SpecPage";
 import { specs, allSpecSlugs } from "../data/specs";
 
-const WA_NUMBER = "628123456789"; // nomor internasional (ubah di sini jika perlu)
+const WA_NUMBER = "+6287856277372"; // nomor internasional (ubah di sini jika perlu)
 
 // ======= CUSTOM MESSAGE (W4) =======
 // Ubah pesan ini sesuai kebutuhan. {MODEL} akan diganti dengan title model otomatis.

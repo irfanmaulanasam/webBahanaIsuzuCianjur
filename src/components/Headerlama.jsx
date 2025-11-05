@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import data from "../data/siteContent.json";
 import { Menu, X, Search } from "lucide-react";
-import logoDealer from "../assets/logo-dealer.jpg";
+import logoDealer from "../assets/logo-bahana.webp";
 import logoRPRI from "../assets/logorpri.jpg";
 
 export default function Header() {

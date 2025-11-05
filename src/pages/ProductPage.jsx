@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from "react";
 import {products} from "../data/siteContent.json"
-// Sample data (replace with import from siteContent.json if you prefer)
 
 export default function ProductsGrid({ data = products }) {
   // state for category filter and modal

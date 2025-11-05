@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import data from "../data/siteContent.json";
 import CreditSimulator from "../components/CreditSimulator";
