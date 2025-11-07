@@ -19,7 +19,7 @@ export default function App() {
       {/* Semua route dibungkus Layout */}
       <Route element={<Layout />}>
         <Route path="/" element={<Home/>} />
-        <Route path="/" element={<Navigate to={`/spec/${defaultSlug}`} replace />} />
+        <Route path="/" element={<Navigate to={`/spec/${defaultSlug}`} />} />
         <Route path="/vehicle-cost" element={<VehicleCost />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/products" element={<ProductPage />} />

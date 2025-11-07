@@ -1,7 +1,7 @@
 // src/pages/SpecWrapper.jsx
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import SpecPage from "../pages/SpecPage";
+import SpecPage from "./specPage";
 import { specs, allSpecSlugs } from "../data/specs";
 
 const WA_NUMBER = "+6287856277372"; // nomor internasional (ubah di sini jika perlu)
@@ -45,7 +45,7 @@ export default function SpecWrapper() {
       const scrollTop = window.scrollY || window.pageYOffset;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      if (progress > 60) {
+      if (progress > 99) {
         setShowPopup(true);
       }
     };

@@ -1,6 +1,3 @@
-// src/components/SpecPage.jsx
-import React from "react";
-
 export default function SpecPage({ data }) {
   if (!data) return <div className="p-8">Spesifikasi tidak ditemukan.</div>;
 
