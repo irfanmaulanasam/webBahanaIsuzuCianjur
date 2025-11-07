@@ -9,6 +9,7 @@ import AboutPage from "./pages/AboutPage.jsx";
 import VehicleCost from "./pages/VehicleCost";
 import CreditSimulatorPages from "./pages/CreditSimulatorPages";
 import SearchPage from "./pages/SearchPage";
+import NotFound from "./pages/NotFound.jsx";
 import { allSpecSlugs } from "./data/specs";
 
 export default function App() {
@@ -28,9 +29,9 @@ export default function App() {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/outlet" element={<OutletPage />} />
         <Route path="/credit-simulator" element={<CreditSimulatorPages />} />
-
+        
         {/* fallback 404 */}
-        <Route path="*" element={<div className="p-8">Halaman tidak ditemukan</div>} />
+        <Route path="*" element={<NotFound/>} />
       </Route>
     </Routes>
   );
