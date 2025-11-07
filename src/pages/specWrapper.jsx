@@ -22,18 +22,52 @@ export default function SpecWrapper() {
   const navigate = useNavigate();
   const [data, setData] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
-
-  useEffect(() => {
-    if (!slug) return;
-    const found = specs[slug];
-    if (found) {
-      setData(found);
-    } else {
-      // jika slug tidak ditemukan, redirect ke first available
-      const first = allSpecSlugs[0];
-      navigate(`/spec/${first}`, { replace: true });
+useEffect(() => {
+  if (!slug) return;
+  
+  // System auto-complete untuk slug pendek
+  const autoCompleteSlug = (shortSlug) => {
+    if (shortSlug==="blindvan") {
+      shortSlug = "traga-blind-van"
     }
-  }, [slug, navigate]);
+    const prefixMap = {
+      "nmr": "elf-",
+      "nlr": "elf-", 
+      "nps": "elf-",
+      "nqr": "elf-",
+      "dmax": "", // sudah lengkap
+      "traga": "",
+      "blind-van":"traga-",
+      "box":"traga-",
+      "mu-x": "",
+      "giga": "",
+      "elf": "" // sudah lengkap
+    };
+    
+    // Cari prefix yang cocok
+    for (const [key, prefix] of Object.entries(prefixMap)) {
+      if (shortSlug.startsWith(key) || shortSlug === key.replace('-', '')) {
+        return prefix + shortSlug;
+      }
+    }
+    
+    return shortSlug; // return as-is jika tidak ada match
+  };
+
+  const actualSlug = autoCompleteSlug(slug);
+  const found = specs[actualSlug];
+  
+  console.log(`Slug: ${slug} → ${actualSlug}, Found:`, !!found);
+  navigate(`/spec/${actualSlug}`, { replace: true });
+  if (found) {
+    setData(found);
+  } else {
+    // Fallback: cari slug yang mengandung keyword
+    const fallbackSlug = allSpecSlugs.find(s => s.includes(slug)) || allSpecSlugs[0];
+    console.log(`Fallback to: ${fallbackSlug}`);
+    navigate(`/spec/${fallbackSlug}`, { replace: true });
+  }
+}, [slug, navigate]);
 
   // Floating WA link (bottom right) uses model title in message
   const waMessage = data ? CUSTOM_WA_MESSAGE.replace("{MODEL}", data.title) : CUSTOM_WA_MESSAGE;
