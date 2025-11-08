@@ -17,19 +17,31 @@ export default function App() {
 
   return (
     <Routes>
-      {/* Semua route dibungkus Layout */}
       <Route element={<Layout />}>
-        <Route path="/" element={<Home/>} />
-        <Route path="/" element={<Navigate to={`/spec/${defaultSlug}`} />} />
-        <Route path="/about" element={<AboutPage />} />
+        {/*
+          1. Homepage (index)
+          Ini adalah Rute yang dieksekusi saat path adalah "/"
+        */}
+        <Route index element={<Home />} /> 
+        
+        {/* Rute spesifikasi dan biaya kendaraan harus memiliki path unik */}
         <Route path="/products" element={<ProductPage />} />
         <Route path="/spec/:slug" element={<SpecWrapper />} />
+        <Route path="/vehicle-cost/" element={<VehicleCost />} />
+        <Route path="/vehicle-cost/:slug" element={<VehicleCost />} />
+        <Route 
+          path="/spec" 
+          element={<Navigate to={`/spec/${defaultSlug}`} replace />} 
+        />
+        
+        {/* Rute lainnya */}
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/outlet" element={<OutletPage />} />
-        <Route path="/vehicle-cost/:slug" element={<VehicleCost />} />
         <Route path="/credit-simulator/" element={<CreditSimulatorPages />} />
-        {/* fallback 404 */}
+        
+        {/* Fallback 404 - Harus diletakkan paling akhir di dalam Route element */}
         <Route path="*" element={<NotFound/>} />
       </Route>
     </Routes>
