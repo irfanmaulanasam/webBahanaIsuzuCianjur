@@ -265,7 +265,7 @@ export const productsSummary = [
       "engine": "4,778 cc",
       "power": "150 / 2,600 PS/rpm",
       "tonnage": "6,000 kg",
-      "cabinEnd": "-",
+      "cabinEnd": "4.192 mm",
       "price": "Rp. 896.000.000"
     }
   },
@@ -281,16 +281,7 @@ export const productsSummary = [
       "power": "190 / 2,600 PS/rpm",
       "tonnage": "10,000 kg",
       "cabinEnd": "-",
-      "price": [
-        {
-          "name": "Harga Off The Road",
-          "value": "Rp629.000.000"
-        },
-        {
-          "name": "Harga OTR Jawa Barat",
-          "value": "Rp742.220.000"
-        }
-      ]
+      "price": "Rp742.220.000"
     }
   },
   {
@@ -305,10 +296,7 @@ export const productsSummary = [
       "power": "210 / 2,600 PS/rpm",
       "tonnage": "14,000 kg",
       "cabinEnd": "-",
-      "price": {
-        "off the road": "Rp. 701.000.000",
-        "OTR Jawa Barat": "Rp. 827.180.000"
-      }
+      "price":"Rp. 827.180.000"
     }
   },
   {
@@ -323,16 +311,7 @@ export const productsSummary = [
       "power": "210 / 2,600 PS/rpm",
       "tonnage": "14,000 kg",
       "cabinEnd": "-",
-      "price": [
-        {
-          "name": "Harga Off The Road",
-          "value": "Rp701.000.000"
-        },
-        {
-          "name": "Harga OTR Jawa Barat",
-          "value": "Rp831.900.000"
-        }
-      ]
+      "price":"Rp831.900.000"
     }
   },
   {
@@ -347,16 +326,7 @@ export const productsSummary = [
       "power": "210 / 2,600 PS/rpm",
       "tonnage": "14,000 kg",
       "cabinEnd": "-",
-      "price": [
-        {
-          "name": "Harga Off The Road",
-          "value": "Rp713.000.000"
-        },
-        {
-          "name": "Harga OTR Jawa Barat",
-          "value": "Rp841.340.000"
-        }
-      ]
+      "price":"Rp841.340.000"
     }
   },
   {
@@ -371,16 +341,7 @@ export const productsSummary = [
       "power": "245 / 2,400 PS/rpm",
       "tonnage": "16,000 kg",
       "cabinEnd": "-",
-      "price": [
-        {
-          "name": "Harga Off The Road",
-          "value": "Rp782.000.000"
-        },
-        {
-          "name": "Harga OTR Jawa Barat",
-          "value": "Rp922.760.000"
-        }
-      ]
+      "price": "Rp922.760.000"
     }
   },
   {
@@ -395,16 +356,7 @@ export const productsSummary = [
       "power": "245 / 2,400 PS/rpm",
       "tonnage": "16,000 kg",
       "cabinEnd": "-",
-      "price": [
-        {
-          "name": "Harga Off The Road",
-          "value": "Rp788.000.000"
-        },
-        {
-          "name": "Harga OTR Jawa Barat",
-          "value": "Rp929.840.000"
-        }
-      ]
+      "price": "Rp929.840.000"
     }
   },
   {
@@ -419,16 +371,7 @@ export const productsSummary = [
       "power": "245 / 2,400 PS/rpm",
       "tonnage": "16,000 kg",
       "cabinEnd": "-",
-      "price": [
-        {
-          "name": "Harga Off The Road",
-          "value": "Rp798.000.000"
-        },
-        {
-          "name": "Harga OTR Jawa Barat",
-          "value": "Rp941.640.000"
-        }
-      ]
+      "price":  "Rp941.640.000"
     }
   },
   {
@@ -443,16 +386,7 @@ export const productsSummary = [
       "power": "245 / 2,400 PS/rpm",
       "tonnage": "16,000 kg",
       "cabinEnd": "-",
-      "price": [
-        {
-          "name": "Harga Off The Road",
-          "value": "Rp793.000.000"
-        },
-        {
-          "name": "Harga OTR Jawa Barat",
-          "value": "Rp935.740.000"
-        }
-      ]
+      "price": "Rp935.740.000"
     }
   },
   {
@@ -467,16 +401,7 @@ export const productsSummary = [
       "power": "245 / 2,400 PS/rpm",
       "tonnage": "16,000 kg",
       "cabinEnd": "-",
-      "price": [
-        {
-          "name": "Harga Off The Road",
-          "value": "Rp807.000.000"
-        },
-        {
-          "name": "Harga OTR Jawa Barat",
-          "value": "Rp952.260.000"
-        }
-      ]
+      "price": "Rp952.260.000"
     }
   },
   {
@@ -491,10 +416,7 @@ export const productsSummary = [
       "power": "285 / 2,400 PS/rpm",
       "tonnage": "26,000 kg",
       "cabinEnd": "-",
-      "price": {
-        "off the road": "Rp. 1.152.000.000",
-        "OTR Jawa Barat": "Rp. 1.359.360.000"
-      }
+      "price": "Rp. 1.359.360.000"
     }
   },
   {
@@ -509,10 +431,7 @@ export const productsSummary = [
       "power": "285 / 2,400 PS/rpm",
       "tonnage": "26,000 kg",
       "cabinEnd": "-",
-      "price": {
-        "off the road": "Rp. 1.157.000.000",
-        "OTR Jawa Barat": "Rp. 1.365.260.000"
-      }
+      "price": "Rp. 1.365.260.000"
     }
   },
   {
@@ -527,16 +446,7 @@ export const productsSummary = [
       "power": "285 / 2,400 PS/rpm",
       "tonnage": "26,000 kg",
       "cabinEnd": "-",
-      "price": [
-        {
-          "name": "off the road",
-          "value": "Rp. 1.178.000.000"
-        },
-        {
-          "name": "OTR Jawa Barat",
-          "value": "Rp. 1.390.040.000"
-        }
-      ]
+      "price":"Rp. 1.390.040.000"
     }
   },
   {
@@ -551,7 +461,7 @@ export const productsSummary = [
       "power": "245 / 2,400 PS/rpm",
       "tonnage": "26,000 kg",
       "cabinEnd": "-",
-      "price": "-"
+      "price": "Rp. 1.102.120.000"
     }
   },
   {
@@ -566,7 +476,7 @@ export const productsSummary = [
       "power": "285 / 2,400 PS/rpm",
       "tonnage": "26,000 kg",
       "cabinEnd": "-",
-      "price": "-"
+      "price": " Rp. 1.164.660.000"
     }
   },
   {
@@ -581,7 +491,7 @@ export const productsSummary = [
       "power": "245 / 2,400 PS/rpm",
       "tonnage": "26,000 kg",
       "cabinEnd": "-",
-      "price": "-"
+      "price": "Rp1.087.960.000"
     }
   },
   {
@@ -596,7 +506,7 @@ export const productsSummary = [
       "power": "285 / 2,400 PS/rpm",
       "tonnage": "26,000 kg",
       "cabinEnd": "-",
-      "price": "-"
+      "price": "Rp1.183.540.000"
     }
   },
   {
@@ -611,16 +521,7 @@ export const productsSummary = [
       "power": "285 / 2,400 PS/rpm",
       "tonnage": "35,000 kg",
       "cabinEnd": "-",
-      "price": [
-        {
-          "name": "off the road",
-          "value": "Rp895.000.000"
-        },
-        {
-          "name": "OTR Jawa Barat",
-          "value": "Rp1.056.100.000"
-        }
-      ]
+      "price": "Rp1.056.100.000"
     }
   },
   {
@@ -635,10 +536,7 @@ export const productsSummary = [
       "power": "350 / 2,000 PS/rpm",
       "tonnage": "46,100 kg",
       "cabinEnd": "-",
-      "price": {
-        "off the road": "Rp. 1.181.000.000",
-        "OTR Jawa Barat": "Rp. 1.393.580.000"
-      }
+      "price":  "Rp. 1.393.580.000"
     }
   },
   {
@@ -653,14 +551,7 @@ export const productsSummary = [
       "power": "350 / 2,000 PS/rpm",
       "tonnage": "46,100 kg",
       "cabinEnd": "-",
-      "price": [
-        {
-          "off the road": "Rp. 1.338.000.000"
-        },
-        {
-          "OTR Jawa Barat": "Rp. 1.578.840.000"
-        }
-      ]
+      "price":  "Rp. 1.578.840.000"
     }
   }
 ];

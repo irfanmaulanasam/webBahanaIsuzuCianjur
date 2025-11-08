@@ -17,8 +17,6 @@ export default function ProductCard({ product, onClick }) { const [imageError, s
 
     // Tentukan konten visual
     const ImageOrPlaceholder = () => {
-      console.log("image address>>",image)
-      console.log("image error>>",imageError)
         if (imageError || !image) {
             // Tampilkan Placeholder: Kotak abu-abu dengan nama produk
             console.log("lari kesini karena error>",name);
@@ -35,7 +33,6 @@ export default function ProductCard({ product, onClick }) { const [imageError, s
             );
         } else {
             // Tampilkan Gambar Asli
-            console.log("tidak error",name);
             
             return (
                 <img
@@ -79,7 +76,8 @@ export default function ProductCard({ product, onClick }) { const [imageError, s
       className="border rounded-xl shadow-sm hover:shadow-lg transition cursor-pointer overflow-hidden bg-white"
     >
       <div className="h-48 w-full overflow-hidden bg-slate-100">
-        <img src={image} alt="" srcset="" />
+        {/* <img src={image} alt="" srcset="" /> */}
+        {ImageOrPlaceholder()}
         {/* {ImageOrPlaceholder()} */}
       </div>
 
