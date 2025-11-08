@@ -1,7 +1,58 @@
-import React, { useState, useMemo } from "react";
+import  { useState, useMemo,useEffect } from "react";
 import { Info } from "lucide-react";
+import { useNavigate, useParams } from "react-router-dom";
+import { specs, allSpecSlugs } from "../data/specs";
 
 export default function VehicleCostCalculator() {
+  const {slug} = useParams()
+  console.log("slug>>>",slug)
+  // const navigate = useNavigate()
+  // useEffect(() => {
+  //   if (!slug) return;
+    
+  //   const autoCompleteSlug = (shortSlug) => {
+  //     if (shortSlug==="blindvan") {
+  //       shortSlug = "traga-blind-van"
+  //     }
+  //     const prefixMap = {
+  //       "nmr": "elf-",
+  //       "nlr": "elf-", 
+  //       "nps": "elf-",
+  //       "nqr": "elf-",
+  //       "dmax": "", // sudah lengkap
+  //       "traga": "",
+  //       "blind-van":"traga-",
+  //       "box":"traga-",
+  //       "mu-x": "",
+  //       "giga": "",
+  //       "elf": "" // sudah lengkap
+  //     };
+      
+  //     // Cari prefix yang cocok
+  //     for (const [key, prefix] of Object.entries(prefixMap)) {
+  //       if (shortSlug.startsWith(key) || shortSlug === key.replace('-', '')) {
+  //         return prefix + shortSlug;
+  //       }
+  //     }
+      
+  //     return shortSlug; // return as-is jika tidak ada match
+  //   };
+  
+  //   const actualSlug = autoCompleteSlug(slug);
+  //   const found = specs[actualSlug];  
+  // console.log(`Slug: ${slug} → ${actualSlug}, Found:`, !!found);
+
+  //   navigate(`/${actualSlug}`, { replace: true });
+  //   if (found) {
+  //     setData(found);
+  //   } else {
+  //     // Fallback: cari slug yang mengandung keyword
+  //     const fallbackSlug = allSpecSlugs.find(s => s.includes(slug)) || allSpecSlugs[0];
+  //     console.log(`Fallback to: ${fallbackSlug}`);
+  //     navigate(`/${fallbackSlug}`, { replace: true });
+  //   }
+  // }, [slug, navigate]);
+
   const [data, setData] = useState({
     hargaTruk: 300000000,
     umurPakai: 5,
@@ -46,7 +97,7 @@ export default function VehicleCostCalculator() {
       <span className="text-center text-gray-600">
         Simulasi interaktif untuk menghitung biaya kendaraan komersial per tahun dan per kilometer.
       </span>
-
+      <p></p>
       {/* === FORM === */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Bagian kiri */}

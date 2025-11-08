@@ -5,6 +5,7 @@ export const IsuzuPrices = {
   "Truck Pick-up":[
   {model:"Single Cabin MT",price:"413950000", type:"Truck Pick Up"},
   {model:"Double Cabin MT",price:"524100000", type:"Truck Pick Up"},
+  {model: "dmax-rodeo-m/t",price: "537800000", type:"truck pick up"}
   ],
   "Niaga Berat (HCV)": [
     { model: "FTR T", price:"841340000", type: "High Commercial Vehicle" },

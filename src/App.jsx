@@ -21,15 +21,14 @@ export default function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<Home/>} />
         <Route path="/" element={<Navigate to={`/spec/${defaultSlug}`} />} />
-        <Route path="/vehicle-cost" element={<VehicleCost />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/products" element={<ProductPage />} />
         <Route path="/spec/:slug" element={<SpecWrapper />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/outlet" element={<OutletPage />} />
-        <Route path="/credit-simulator" element={<CreditSimulatorPages />} />
-        
+        <Route path="/vehicle-cost/:slug" element={<VehicleCost />} />
+        <Route path="/credit-simulator/" element={<CreditSimulatorPages />} />
         {/* fallback 404 */}
         <Route path="*" element={<NotFound/>} />
       </Route>

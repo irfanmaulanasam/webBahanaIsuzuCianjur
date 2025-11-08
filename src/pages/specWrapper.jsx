@@ -56,8 +56,6 @@ useEffect(() => {
 
   const actualSlug = autoCompleteSlug(slug);
   const found = specs[actualSlug];
-  
-  console.log(`Slug: ${slug} → ${actualSlug}, Found:`, !!found);
   navigate(`/spec/${actualSlug}`, { replace: true });
   if (found) {
     setData(found);
@@ -109,7 +107,7 @@ useEffect(() => {
       </a>
 
       {/* Auto-popup modal (soft) */}
-      {showPopup && (
+      {/* {showPopup && (
         <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center p-4">
           <div
             className="absolute inset-0 bg-black/40"
@@ -152,7 +150,7 @@ useEffect(() => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 }

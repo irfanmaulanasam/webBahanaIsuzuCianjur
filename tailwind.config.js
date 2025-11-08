@@ -9,6 +9,7 @@ export default {
     extend: {
       colors: {
         isuzu: "var(--isuzu-red)",
+        bahana:"var(--bahana-blue)"
       },
     },
   },

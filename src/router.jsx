@@ -9,6 +9,7 @@ import Outlet from './pages/Outlet'
 import Contact from './pages/Contact'
 import VehicleCost from './pages/VehicleCost'
 import CreditSimulatorPages from './pages/CreditSimulatorPages'
+import NotFound from './pages/NotFound'
 
 export const router = createBrowserRouter([
   {
@@ -16,13 +17,14 @@ export const router = createBrowserRouter([
       element: <App />,
       children: [
         { index: true, element: <Home /> },
-        {path: 'vehicle-cost', element: <VehicleCost/> },
         { path: 'about', element: <About /> },
         { path: 'products', element: <Product /> },
         { path: 'services', element: <Services /> },
         { path: 'outlet', element: <Outlet /> },
+        {path: 'vehicle-cost', element: <VehicleCost/> },
+        {path: 'credit simulator', element:<CreditSimulatorPages/> },
         { path: 'contact', element: <Contact /> },
-        {path: 'credit simulator', element:<CreditSimulatorPages/> }
+        {path:'*', element:<NotFound/>}
     ]
   }
 ])
