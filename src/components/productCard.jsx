@@ -17,8 +17,12 @@ export default function ProductCard({ product, onClick }) { const [imageError, s
 
     // Tentukan konten visual
     const ImageOrPlaceholder = () => {
+      console.log("image address>>",image)
+      console.log("image error>>",imageError)
         if (imageError || !image) {
             // Tampilkan Placeholder: Kotak abu-abu dengan nama produk
+            console.log("lari kesini karena error>",name);
+            
             return (
                 <div 
                     className="h-full w-full bg-slate-200 flex items-center justify-center text-center p-4"
@@ -31,6 +35,8 @@ export default function ProductCard({ product, onClick }) { const [imageError, s
             );
         } else {
             // Tampilkan Gambar Asli
+            console.log("tidak error",name);
+            
             return (
                 <img
                     src={image}
@@ -48,7 +54,7 @@ export default function ProductCard({ product, onClick }) { const [imageError, s
     tonnage = "-",
     cabinEnd = "-", 
     price = "-", 
-  } = product.details || {}; 
+  } = details || {}; 
   const formatPrice = (p) => {
   if (typeof p === 'string') {
     return p;
@@ -73,7 +79,8 @@ export default function ProductCard({ product, onClick }) { const [imageError, s
       className="border rounded-xl shadow-sm hover:shadow-lg transition cursor-pointer overflow-hidden bg-white"
     >
       <div className="h-48 w-full overflow-hidden bg-slate-100">
-        {ImageOrPlaceholder()}
+        <img src={image} alt="" srcset="" />
+        {/* {ImageOrPlaceholder()} */}
       </div>
 
       {/* Bagian utama judul dan harga */}

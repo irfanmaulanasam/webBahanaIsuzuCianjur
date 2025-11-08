@@ -4,7 +4,7 @@ export const productsSummary = [
     "slug": "traga-pick-up-fd",
     "name": "Traga Pick Up (FD)",
     "category": "PICKUP & LCV",
-    "image": "/assets/products/traga-pick-up-fd.jpg",
+    "image": "src/assets/products/2022_TRAGA_EURO4_Pick-Up-Sisi-Sopir-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "2,499 cc",
@@ -19,7 +19,7 @@ export const productsSummary = [
     "slug": "traga-box",
     "name": "Traga box",
     "category": "PICKUP & LCV",
-    "image": "/assets/products/traga-box.jpg",
+    "image": "src/assets/products/2022_TRAGA-_EURO4_Box-Aluminium-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "2,499 cc",
@@ -32,9 +32,9 @@ export const productsSummary = [
   {
     "id": "traga-freezer-box",
     "slug": "traga-freezer-box",
-    "name": "Traga Pick Up (FD)",
+    "name": "Traga Freezer Box",
     "category": "PICKUP & LCV",
-    "image": "/assets/products/traga-freezer-box.jpg",
+    "image": "src/assets/products/2022_traga_freezer_box.png",
     "details": {
       "seats": "3 orang",
       "engine": "2,499 cc",
@@ -49,7 +49,7 @@ export const productsSummary = [
     "slug": "traga-blind-van",
     "name": "TRAGA BLIND VAN",
     "category": "PICKUP & LCV",
-    "image": "/assets/products/traga-blind-van.jpg",
+    "image": "src/assets/products/2022_TRAGA-BLIND-VAN-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "2,499 cc",
@@ -63,29 +63,29 @@ export const productsSummary = [
     "id": "dmax-sc",
     "slug": "dmax-sc",
     "name": "Isuzu D-MAX SC",
-    "category": "TRUK",
-    "image": "/assets/products/dmax-sc.jpg",
+    "category": "Pick Up 4x4",
+    "image": "src/assets/products/All-New-Isuzu-D-Max-SC-MT-Spash-White-300x300.png",
     "details": {
       "seats": "2 orang",
       "engine": "1,898 cc",
       "power": "150 / 3,600 PS/rpm",
       "tonnage": "2,800 kg",
-      "cabinEnd": "-",
+      "cabinEnd": "2,330 mm",
       "price": " Rp. 423.000.000"
     }
   },
   {
     "id": "dmax-rodeo-m/t",
     "slug": "dmax-rodeo-m/t",
-    "name": "Isuzu D-MAX RODEO M/T",
-    "category": "TRUK",
-    "image": "/assets/products/dmax-rodeo-m/t.jpg",
+    "name": "D-MAX RODEO M/T",
+    "category": "Pick Up 4x4",
+    "image": "src/assets/products/2025-D-MAX-copy-300x197.png",
     "details": {
       "seats": "5 orang",
       "engine": "1,898 cc",
       "power": "150 / 3,600 PS/rpm",
       "tonnage": "2,800 kg",
-      "cabinEnd": "-",
+      "cabinEnd": "1,571 mm",
       "price": "Rp. 537.800.000"
     }
   },
@@ -93,14 +93,14 @@ export const productsSummary = [
     "id": "dmax-dc",
     "slug": "dmax-dc",
     "name": "Isuzu D-MAX DC",
-    "category": "TRUK",
-    "image": "/assets/products/dmax-dc.jpg",
+    "category": "Pick Up 4x4",
+    "image": "src/assets/products/All-New-Isuzu-D-Max-DC-MT-300x300.png",
     "details": {
       "seats": "5 orang",
       "engine": "1,898 cc",
       "power": "150 / 3,600 PS/rpm",
       "tonnage": "2,800 kg",
-      "cabinEnd": "-",
+      "cabinEnd": "1,571 mm",
       "price": "Rp. 473.100.000"
     }
   },
@@ -108,8 +108,8 @@ export const productsSummary = [
     "id": "mu-x-4x4",
     "slug": "mu-x-4x4",
     "name": "Isuzu MU-X – 4X4",
-    "category": "SUV & MPV",
-    "image": "/assets/products/mu-x-4x4.jpg",
+    "category": "SUV",
+    "image": "src/assets/products/All-New-Isuzu-Mux-4x4-Splash-White-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "1,898 cc",
@@ -123,44 +123,29 @@ export const productsSummary = [
     "id": "elf-nlr",
     "slug": "elf-nlr",
     "name": "Isuzu ELF-NLR",
-    "category": "TRUK",
-    "image": "/assets/products/elf-nlr.jpg",
+    "category": "TRUK MEDIUM",
+    "image": "src/assets/products/2022_NLR-_EURO4_Bak-Besi-low-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "2,999 cc",
       "power": "120 / 2,600 PS/rpm",
       "tonnage": "5,100 kg",
-      "cabinEnd": "-",
+      "cabinEnd": "3,127 mm",
       "price": "Rp 419.000.000"
-    }
-  },
-  {
-    "id": "elf-nps",
-    "slug": "elf-nps",
-    "name": "Isuzu ELF-NPS",
-    "category": "TRUK",
-    "image": "/assets/products/elf-nps.jpg",
-    "details": {
-      "seats": "3 orang",
-      "engine": "4,778 cc",
-      "power": "150 / 2,600 PS/rpm",
-      "tonnage": "6,000 kg",
-      "cabinEnd": "-",
-      "price": "Rp. 896.000.000"
     }
   },
   {
     "id": "elf-nlr-l",
     "slug": "elf-nlr-l",
     "name": "Isuzu ELF-NLR L",
-    "category": "TRUK",
-    "image": "/assets/products/elf-nlr-l.jpg",
+    "category": "TRUK MEDIUM",
+    "image": "src/assets/products/2022_NLR-_EURO4_Box-Aluminium-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "2,999 cc",
       "power": "120 / 2,600 PS/rpm",
       "tonnage": "5,100 kg",
-      "cabinEnd": "-",
+      "cabinEnd": "4,897 mm",
       "price": "Rp. 436.000.000"
     }
   },
@@ -168,14 +153,14 @@ export const productsSummary = [
     "id": "elf-nmr",
     "slug": "elf-nmr",
     "name": "Isuzu ELF-NMR",
-    "category": "TRUK",
-    "image": "/assets/products/elf-nmr.jpg",
+    "category": "TRUK MEDIUM",
+    "image": "src/assets/products/2022_NMR-_EURO4_Box-Besi-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "4,778 cc",
       "power": "150 / 2,600 PS/rpm",
       "tonnage": "8,250 kg",
-      "cabinEnd": "-",
+      "cabinEnd": "4,830 mm",
       "price": "Rp. 496.000.000"
     }
   },
@@ -183,14 +168,14 @@ export const productsSummary = [
     "id": "elf-nmr-l",
     "slug": "elf-nmr-l",
     "name": "Isuzu ELF-NMR L",
-    "category": "TRUK",
-    "image": "/assets/products/elf-nmr-l.jpg",
+    "category": "TRUK MEDIUM",
+    "image": "src/assets/products/2022_NMR-_EURO4_Box-Besi-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "4,778 cc",
       "power": "150 / 2,600 PS/rpm",
       "tonnage": "8,250 kg",
-      "cabinEnd": "-",
+      "cabinEnd": "5,930 mm",
       "price": "Rp. 507.000.000"
     }
   },
@@ -198,14 +183,14 @@ export const productsSummary = [
     "id": "elf-nmr-hd-58",
     "slug": "elf-nmr-hd-58",
     "name": "Isuzu ELF-NMR HD 5.8",
-    "category": "TRUK",
-    "image": "/assets/products/elf-nmr-hd-58.jpg",
+    "category": "TRUK MEDIUM",
+    "image": "src/assets/products/2022_NMR-_EURO4_Box-Besi-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "4,778 cc",
       "power": "150 / 2,600 PS/rpm",
       "tonnage": "8,250 kg",
-      "cabinEnd": "-",
+      "cabinEnd": "4,530 mm",
       "price": "Rp. 507.000.000"
     }
   },
@@ -213,14 +198,14 @@ export const productsSummary = [
     "id": "elf-nmr-hd-65",
     "slug": "elf-nmr-hd-65",
     "name": "Isuzu ELF-NMR HD 6.5",
-    "category": "TRUK",
-    "image": "/assets/products/elf-nmr-hd-65.jpg",
+    "category": "TRUK MEDIUM",
+    "image": "src/assets/products/2022_NMR-_EURO4_Box-Besi-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "4,778 cc",
       "power": "150 / 2,600 PS/rpm",
       "tonnage": "8,250 kg",
-      "cabinEnd": "-",
+      "cabinEnd": "4,530 mm",
       "price": "Rp. 518.000.000"
     }
   },
@@ -228,8 +213,8 @@ export const productsSummary = [
     "id": "elf-nqr-b",
     "slug": "elf-nqr-b",
     "name": "Isuzu ELF-NQR B",
-    "category": "TRUK",
-    "image": "/assets/products/elf-nqr-b.jpg",
+    "category": "MICRO BUS",
+    "image": "src/assets/products/2022_NLR-RTU_EURO4-low-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "4,570 cc",
@@ -243,8 +228,8 @@ export const productsSummary = [
     "id": "elf-nlr-b-l-cabinchassis",
     "slug": "elf-nlr-b-l-cabinchassis",
     "name": "Isuzu ELF-NLR B L Cabin Chassis",
-    "category": "TRUK",
-    "image": "/assets/products/elf-nlr-b-l-cabinchassis.jpg",
+    "category": "MICRO BUS",
+    "image": "src/assets/products/2022_NLR-RTU_EURO4-low-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "2,999 cc",
@@ -258,8 +243,8 @@ export const productsSummary = [
     "id": "elf-nlr-b-l-microbus-rtu",
     "slug": "elf-nlr-b-l-microbus-rtu",
     "name": "Isuzu ELF-NLR B L Microbus (RTU)",
-    "category": "TRUK",
-    "image": "/assets/products/elf-nlr-b-l-microbus-rtu.jpg",
+    "category": "MICRO BUS",
+    "image": "src/assets/products/2022_NLR-RTU_EURO4-low-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "2,999 cc",
@@ -270,11 +255,26 @@ export const productsSummary = [
     }
   },
   {
+    "id": "elf-nps",
+    "slug": "elf-nps",
+    "name": "Isuzu ELF-NPS",
+    "category": "TRUK MEDIUM",
+    "image": "src/assets/products/2022_NPS-4x4_EURO4-300x300.png",
+    "details": {
+      "seats": "3 orang",
+      "engine": "4,778 cc",
+      "power": "150 / 2,600 PS/rpm",
+      "tonnage": "6,000 kg",
+      "cabinEnd": "-",
+      "price": "Rp. 896.000.000"
+    }
+  },
+  {
     "id": "giga-frr-q",
     "slug": "giga-frr-q",
     "name": "GIGA FRR Q",
-    "category": "TRUK MEDIUM",
-    "image": "/assets/products/giga-frr-q.jpg",
+    "category": "TRUK",
+    "image": "src/assets/products/2022_FRR_EURO4_Wingbox-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "5,193 cc",
@@ -297,8 +297,8 @@ export const productsSummary = [
     "id": "giga-ftr-p",
     "slug": "giga-ftr-p",
     "name": "Isuzu GIGA-FTR P",
-    "category": "TRUK MEDIUM",
-    "image": "/assets/products/giga-ftr-p.jpg",
+    "category": "TRUK",
+    "image": "src/assets/products/2022_FTR_EURO4_Wingbox-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "5,193 cc",
@@ -315,8 +315,8 @@ export const productsSummary = [
     "id": "giga-ftr-s",
     "slug": "giga-ftr-s",
     "name": "GIGA-FTR S",
-    "category": "TRUK MEDIUM",
-    "image": "/assets/products/giga-ftr-s.jpg",
+    "category": "TRUK",
+    "image": "src/assets/products/2022_FTR_EURO4_Wingbox-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "5,193 cc",
@@ -339,8 +339,8 @@ export const productsSummary = [
     "id": "giga-ftr-t",
     "slug": "giga-ftr-t",
     "name": "GIGA-FTR T",
-    "category": "TRUK MEDIUM",
-    "image": "/assets/products/giga-ftr-t.jpg",
+    "category": "TRUK",
+    "image": "src/assets/products/2022_FTR_EURO4_Wingbox-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "5,193 cc",
@@ -363,8 +363,8 @@ export const productsSummary = [
     "id": "giga-fvr-l-d",
     "slug": "giga-fvr-l-d",
     "name": "GIGA-FVR L D",
-    "category": "TRUK MEDIUM",
-    "image": "/assets/products/giga-fvr-l-d.jpg",
+    "category": "TRUK",
+    "image": "src/assets/products/2022_FVR_EURO4_Bak-Besi-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "7,790 cc",
@@ -387,8 +387,8 @@ export const productsSummary = [
     "id": "giga-fvr-p",
     "slug": "giga-fvr-p",
     "name": "GIGA-FVR P",
-    "category": "TRUK MEDIUM",
-    "image": "/assets/products/giga-fvr-p.jpg",
+    "category": "TRUK",
+    "image": "src/assets/products/2022_FVR_EURO4_Bak-Besi-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "7,790 cc",
@@ -411,8 +411,8 @@ export const productsSummary = [
     "id": "giga-fvr-s",
     "slug": "giga-fvr-s",
     "name": "GIGA-FVR S",
-    "category": "TRUK MEDIUM",
-    "image": "/assets/products/giga-fvr-s.jpg",
+    "category": "TRUK",
+    "image": "src/assets/products/2022_FVR_EURO4_Bak-Besi-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "7,790 cc",
@@ -435,8 +435,8 @@ export const productsSummary = [
     "id": "giga-fvr-q",
     "slug": "giga-fvr-q",
     "name": "GIGA-FVR Q",
-    "category": "TRUK MEDIUM",
-    "image": "/assets/products/giga-fvr-q.jpg",
+    "category": "TRUK",
+    "image": "src/assets/products/2022_FVR_EURO4_Bak-Besi-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "7,790 cc",
@@ -459,8 +459,8 @@ export const productsSummary = [
     "id": "giga-fvr-u",
     "slug": "giga-fvr-u",
     "name": "GIGA-FVR U",
-    "category": "TRUK MEDIUM",
-    "image": "/assets/products/giga-fvr-u.jpg",
+    "category": "TRUK",
+    "image": "src/assets/products/2022_FVR_EURO4_Bak-Besi-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "7,790 cc",
@@ -483,8 +483,8 @@ export const productsSummary = [
     "id": "giga-fvz-l-hp-mx",
     "slug": "giga-fvz-l-hp-mx",
     "name": "Isuzu GIGA-FVZ L HP MX",
-    "category": "TRUK MEDIUM",
-    "image": "/assets/products/giga-fvz-l-hp-mx.jpg",
+    "category": "TRUK",
+    "image": "src/assets/products/2022_FVZ_EURO4_Dump-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "7,790 cc",
@@ -501,8 +501,8 @@ export const productsSummary = [
     "id": "giga-fvz-n-hp",
     "slug": "giga-fvz-n-hp",
     "name": "Isuzu GIGA-FVZ N HP",
-    "category": "TRUK MEDIUM",
-    "image": "/assets/products/giga-fvz-n-hp.jpg",
+    "category": "TRUK",
+    "image": "src/assets/products/2022_FVZ_EURO4_Dump-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "7,790 cc",
@@ -519,8 +519,8 @@ export const productsSummary = [
     "id": "giga-fvz-u-hp",
     "slug": "giga-fvz-u-hp",
     "name": "Isuzu GIGA-FVZ U HP",
-    "category": "TRUK MEDIUM",
-    "image": "/assets/products/giga-fvz-u-hp.jpg",
+    "category": "TRUK",
+    "image": "src/assets/products/2022_FVZ_EURO4_Dump-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "7,790 cc",
@@ -543,8 +543,8 @@ export const productsSummary = [
     "id": "giga-fvm u",
     "slug": "giga-fvm u",
     "name": "isuzu giga-fvm u",
-    "category": "TRUK MEDIUM",
-    "image": "/assets/products/giga-fvm u.jpg",
+    "category": "TRUK",
+    "image": "src/assets/products/2022_FVM_EURO4_Bak-Besi-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "7,790 cc",
@@ -558,8 +558,8 @@ export const productsSummary = [
     "id": "giga-fvm u hp",
     "slug": "giga-fvm u hp",
     "name": "isuzu giga-fvm U HP",
-    "category": "TRUK MEDIUM",
-    "image": "/assets/products/giga-fvm u hp.jpg",
+    "category": "TRUK",
+    "image": "src/assets/products/2022_FVM_EURO4_Box-Besi-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "7,790 cc",
@@ -573,8 +573,8 @@ export const productsSummary = [
     "id": "giga-fvm n",
     "slug": "giga-fvm n",
     "name": "giga-fvm N",
-    "category": "TRUK MEDIUM",
-    "image": "/assets/products/giga-fvm n.jpg",
+    "category": "TRUK",
+    "image": "src/assets/products/2022_FVM_EURO4_Box-Besi-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "7,790 cc",
@@ -588,8 +588,8 @@ export const productsSummary = [
     "id": "giga-fvm n hp abs",
     "slug": "giga-fvm n hp abs",
     "name": "giga-fvm N HP ABS",
-    "category": "TRUK MEDIUM",
-    "image": "/assets/products/giga-fvm n hp abs.jpg",
+    "category": "TRUK",
+    "image": "src/assets/products/2022_FVM_EURO4_Box-Besi-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "7,790 cc",
@@ -603,8 +603,8 @@ export const productsSummary = [
     "id": "giga-gvr-j-hp-abs",
     "slug": "giga-gvr-j-hp-abs",
     "name": "Isuzu GIGA-GVR J HP ABS",
-    "category": "TRUK MEDIUM",
-    "image": "/assets/products/giga-gvr-j-hp-abs.jpg",
+    "category": "TRUK",
+    "image": "src/assets/products/Isuzu-Giga-GVR-low-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "7,790 cc",
@@ -627,8 +627,8 @@ export const productsSummary = [
     "id": "giga-gvz-k-hp-abs",
     "slug": "giga-gvz-k-hp-abs",
     "name": "Isuzu GIGA-GVZ K HP ABS",
-    "category": "TRUK MEDIUM",
-    "image": "/assets/products/giga-gvz-k-hp-abs.jpg",
+    "category": "TRUK",
+    "image": "src/assets/products/Isuzu-Giga-GVZ-400-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "7,790 cc",
@@ -645,8 +645,8 @@ export const productsSummary = [
     "id": "giga-gxz-k-abs",
     "slug": "giga-gxz-k-abs",
     "name": "Isuzu GIGA-GXZ K ABS",
-    "category": "TRUK MEDIUM",
-    "image": "/assets/products/giga-gxz-k-abs.jpg",
+    "category": "TRUK",
+    "image": "src/assets/products/2022_GXZ_EURO4_Container-300x300.png",
     "details": {
       "seats": "3 orang",
       "engine": "7,790 cc",
