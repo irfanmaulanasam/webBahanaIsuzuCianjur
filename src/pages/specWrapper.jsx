@@ -29,19 +29,26 @@ useEffect(() => {
   const autoCompleteSlug = (shortSlug) => {
     if (shortSlug==="blindvan") {
       shortSlug = "traga-blind-van"
+    } 
+    if (shortSlug === 'nmr-58') {
+      shortSlug = 'elf-nmr-hd-58'
+    }
+    if (shortSlug === 'nmr-65') {
+      shortSlug = 'elf-nmr-hd-65'
     }
     const prefixMap = {
       "nmr": "elf-",
+      "nmr-65":"elf-",
       "nlr": "elf-", 
       "nps": "elf-",
       "nqr": "elf-",
-      "dmax": "", // sudah lengkap
+      "dmax": "",
       "traga": "",
       "blind-van":"traga-",
       "box":"traga-",
       "mu-x": "",
       "giga": "",
-      "elf": "" // sudah lengkap
+      "elf": "" 
     };
     
     // Cari prefix yang cocok
@@ -104,53 +111,7 @@ useEffect(() => {
           </svg>
           <span className="hidden sm:inline-block font-medium">Tanya via WhatsApp</span>
         </div>
-      </a>
-
-      {/* Auto-popup modal (soft) */}
-      {/* {showPopup && (
-        <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center p-4">
-          <div
-            className="absolute inset-0 bg-black/40"
-            onClick={() => setShowPopup(false)}
-          />
-          <div className="relative bg-white rounded-lg shadow-lg w-full max-w-md p-5 z-10">
-            <div className="flex justify-between items-start">
-              <div>
-                <h4 className="text-lg font-semibold">Butuh Bantuan?</h4>
-                <p className="text-sm text-gray-600 mt-1">
-                  Saya bisa bantu cek harga, ketersediaan, dan simulasi kredit.
-                </p>
-              </div>
-              <button
-                onClick={() => setShowPopup(false)}
-                className="text-gray-400 hover:text-gray-600 ml-3"
-              >
-                ✕
-              </button>
-            </div>
-
-            <div className="mt-4 flex gap-3">
-              <a
-                href={waLink}
-                target="_blank"
-                rel="noreferrer"
-                className="flex-1 inline-block text-center px-4 py-2 bg-green-500 text-white rounded-md"
-              >
-                Chat WA
-              </a>
-              <button
-                onClick={() => {
-                  // close popup and scroll to contact or open a simple form later
-                  setShowPopup(false);
-                }}
-                className="flex-1 inline-block text-center px-4 py-2 border rounded-md"
-              >
-                Nanti
-              </button>
-            </div>
-          </div>
-        </div>
-      )} */}
+      </a>  
     </>
   );
 }
