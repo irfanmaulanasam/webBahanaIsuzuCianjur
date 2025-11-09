@@ -127,7 +127,7 @@ export default function Header() {
           }`}
         >
           <div className="flex items-center justify-between p-4 border-b">
-            <h2 className="text-lg font-semibold">Menu</h2>
+            <h2 className="text-lg font-semibold"></h2>
             <button onClick={() => setOpen(false)} className="p-2">
               <X className="w-5 h-5 text-slate-600" />
             </button>
@@ -173,6 +173,7 @@ export default function Header() {
           </nav>
         </div>
       </div>
+      <hr className="border-bahana w-full"/>
     </header>
   );
 }

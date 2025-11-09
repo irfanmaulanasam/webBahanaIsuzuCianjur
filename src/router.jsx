@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import App from './App'
 import Home from './pages/Home'
 import About from './pages/About'
+import NewsPages from './pages/NewsPages'
 import Product from './pages/ProductPage'
 import Services from './pages/Services'
 import Outlet from './pages/Outlet'
@@ -21,6 +22,7 @@ export const router = createBrowserRouter([
         { path: 'products', element: <Product /> },
         { path: 'services', element: <Services /> },
         { path: 'outlet', element: <Outlet /> },
+        { path: 'news', element: <NewsPages/>},
         {path: 'vehicle-cost', element: <VehicleCost/> },
         {path: 'credit simulator', element:<CreditSimulatorPages/> },
         { path: 'contact', element: <Contact /> },
