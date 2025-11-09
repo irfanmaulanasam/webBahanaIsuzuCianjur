@@ -54,7 +54,7 @@ export default function SimulasiKredit() {
           </h2>
 
           {/* Merek */}
-          <label className="block mb-4">
+          {/* <label className="block mb-4">
             <span className="text-sm text-gray-700 dark:text-gray-300">Merek</span>
             <input
               type="text"
@@ -62,7 +62,7 @@ export default function SimulasiKredit() {
               disabled
               className="w-full px-3 py-2 border rounded-md bg-gray-100 dark:bg-gray-700 dark:text-gray-300 font-semibold text-center"
             />
-          </label>
+          </label> */}
 
           {/* Tipe */}
           <label className="block mb-4">
