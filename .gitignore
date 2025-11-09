@@ -8,3 +8,4 @@ package-lock.json
 ../src/data/generate_summary.py
 src/data/products_summary.json
 src/data/generate_summary.py
+src/data/blindvan.js
