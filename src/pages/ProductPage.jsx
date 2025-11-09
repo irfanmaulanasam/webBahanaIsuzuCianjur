@@ -11,7 +11,7 @@ export default function ProductsGrid({ data = productsSummary }) {
   
   const categories = useMemo(() => {
     const set = new Set(data.map((p) => p.category));
-    return ["ALL", ...Array.from(set)];
+      return ["ALL", ...Array.from(set)];
   }, [data]);
 
   // filtered list using the selected category
@@ -22,11 +22,9 @@ export default function ProductsGrid({ data = productsSummary }) {
     if (category === "ALL") return data;
     return data.filter((p) => p.category === category);
   }, [data, category]);
-  console.log('slug=>',slug,'=>',category,'categories=>',categories);
   
   // FUNGSI BARU: Untuk menangani klik dan navigasi
   const handleProductClick = (slug) => {
-      // Navigasi ke path /spec/SLUG-KENDARAAN
       navigate(`/spec/${slug}`);
   }
 
@@ -41,7 +39,7 @@ export default function ProductsGrid({ data = productsSummary }) {
               key={cat}
               onClick={() => setCategory(cat)}
               className={`px-3 py-1 rounded-2xl text-sm font-medium shadow-sm hover:scale-105 transition-transform focus:outline-none ${
-                category === cat
+                category === cat 
                   ? "bg-slate-800 text-white"
                   : "bg-slate-100 text-slate-800"
               }`}

@@ -21,7 +21,6 @@ export default function Home(){
               <p className="text-sm text-gray-600 mb-4">{item.description}</p>
               <a
                 href={'/products/'+item.category}
-                // target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-bahana text-white text-sm px-4 py-2 rounded hover:bg-blue-700"
               >
