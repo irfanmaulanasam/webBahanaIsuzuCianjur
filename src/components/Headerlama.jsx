@@ -98,7 +98,7 @@ export default function Header() {
       {/* ======================================================
           ===================  MOBILE HEADER  ==================
           ====================================================== */}
-      <div className="flex md:hidden items-center justify-between h-14 px-4 relative">
+      <div className="flex md:hidden items-center justify-between h-14 px-4 relative ">
         {/* Left: Hamburger */}
         <button onClick={() => setOpen(true)} className="p-2">
           <Menu className="w-6 h-6 text-slate-700" />
@@ -122,7 +122,7 @@ export default function Header() {
 
         {/* Sidebar Menu */}
         <div
-          className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ${
+          className={` fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ${
             open ? "translate-x-0" : "-translate-x-full"
           }`}
         >
@@ -137,7 +137,7 @@ export default function Header() {
           {!isSearchPage && (
             <form
               onSubmit={handleSearch}
-              className="flex items-center p-4 border-b space-x-2"
+              className="flex items-center p-0 border-b space-x-2"
             >
               <input
                 type="text"
@@ -162,7 +162,7 @@ export default function Header() {
                 className={({ isActive }) =>
                   `block px-2 py-1 rounded-md ${
                     isActive
-                      ? "bg-blue-600 text-white"
+                      ? "bg-bahana text-white"
                       : "text-slate-700 hover:bg-slate-100"
                   }`
                 }

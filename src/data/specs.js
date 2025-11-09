@@ -3,7 +3,7 @@ export const specs ={
     slug: "traga-pick-up-fd",
     title: "Traga Pick Up (FD)",
     subtitle: "Spesifikasi Teknis",
-    "price":"Rp. 289.000.000",
+    price:"Rp. 289.000.000",
     sections: [
       {
         label: "DIMENSI",
@@ -102,7 +102,7 @@ export const specs ={
     slug: "traga-box",
     title: "Traga box",
     subtitle: "Spesifikasi Teknis",
-    "price":"Rp. 336.000.000",
+    price:"Rp. 336.000.000",
     sections: [
       {
         label: "DIMENSI",
@@ -201,7 +201,7 @@ export const specs ={
     slug: "traga-pick-up-fd",
     title: "Traga Pick Up (FD)",
     subtitle: "Spesifikasi Teknis",
-    "price":"Rp. 410.000.000",
+    price:"Rp. 410.000.000",
     sections: [
       {
         label: "DIMENSI",
@@ -300,7 +300,7 @@ export const specs ={
     slug: "traga-blind-van",
     title: "TRAGA BLIND VAN",
     subtitle: "Spesifikasi Teknis",
-    "price":"-",
+    price:"-",
     sections:[
         {
             label: 'Dimensi',
@@ -398,7 +398,7 @@ export const specs ={
     slug: "dmax-sc",
     title: "Isuzu D-MAX SC",
     subtitle: "Spesifikasi Teknis",
-    "price": " Rp. 423.000.000",
+    price: " Rp. 423.000.000",
     sections: [
       {
         label: "DIMENSI",
@@ -486,7 +486,7 @@ export const specs ={
     slug: "dmax-rodeo-m/t",
     title: "Isuzu D-MAX RODEO M/T",
     subtitle: "Spesifikasi Teknis",
-    "price": "Rp. 537.800.000",
+    price: "Rp. 537.800.000",
     sections: [
       {
         label: "DIMENSI",
@@ -574,7 +574,7 @@ export const specs ={
     slug: "dmax-dc",
     title: "Isuzu D-MAX DC",
     subtitle: "Spesifikasi Teknis",
-    "price": "Rp. 473.100.000",
+    price: "Rp. 473.100.000",
     sections: [
       {
         label: "DIMENSI",
@@ -662,7 +662,7 @@ export const specs ={
     slug: "mu-x-4x4",
     title: "Isuzu MU-X – 4X4",
     subtitle: "Spesifikasi Teknis",
-    "price": "Rp. 651.600.000",
+    price: "Rp. 651.600.000",
     sections: [
       {
         label: "DIMENSION & WEIGHT",
@@ -767,7 +767,7 @@ export const specs ={
     slug: "elf-nlr",
     title: "Isuzu ELF-NLR",
     subtitle: "Spesifikasi Teknis",
-    "price": "Rp 419.000.000",
+    price: "Rp 419.000.000",
     sections: [
       {
         label: "DIMENSI",
@@ -856,7 +856,7 @@ export const specs ={
     slug: "elf-nps",
     title: "Isuzu ELF-NPS",
     subtitle: "Spesifikasi Teknis",
-    "price": "Rp. 896.000.000",
+    price: "Rp. 896.000.000",
     sections: [
       {
         label: "DIMENSI",
@@ -934,7 +934,7 @@ export const specs ={
     slug: "elf-nlr-l",
     title: "Isuzu ELF-NLR L",
     subtitle: "Spesifikasi Teknis",
-    "price": "Rp. 436.000.000",
+    price: "Rp. 436.000.000",
     sections: [
       {
         label: "DIMENSI",
@@ -1022,7 +1022,7 @@ export const specs ={
     slug: "elf-nmr",
     title: "Isuzu ELF-NMR",
     subtitle: "Spesifikasi Teknis",
-    "price": "Rp. 496.000.000",
+    price: "Rp. 496.000.000",
     sections: [
       {
         label: "DIMENSI",
@@ -1109,7 +1109,7 @@ export const specs ={
     slug: "elf-nmr-l",
     title: "Isuzu ELF-NMR L",
     subtitle: "Spesifikasi Teknis",
-    "price": "Rp. 507.000.000",
+    price: "Rp. 507.000.000",
     sections: [
       {
         label: "DIMENSI",
@@ -1196,7 +1196,7 @@ export const specs ={
     slug: "elf-nmr-hd-58",
     title: "Isuzu ELF-NMR HD 5.8",
     subtitle: "Spesifikasi Teknis",
-    "price": "Rp. 507.000.000",
+    price: "Rp. 507.000.000",
     sections: [
       {
         label: "DIMENSI",
@@ -1283,7 +1283,7 @@ export const specs ={
     slug: "elf-nmr-hd-65",
     title: "Isuzu ELF-NMR HD 6.5",
     subtitle: "Spesifikasi Teknis",
-    "price": "Rp. 518.000.000",
+    price: "Rp. 518.000.000",
     sections: [
       {
         label: "DIMENSI",
@@ -1370,7 +1370,7 @@ export const specs ={
     slug: "elf-nqr-b",
     title: "Isuzu ELF-NQR B",
     subtitle: "Spesifikasi Teknis",
-    "price": "Rp. 512.000.000",
+    price: "Rp. 512.000.000",
     sections: [
       {
         label: "DIMENSI",
@@ -1447,7 +1447,7 @@ export const specs ={
     slug: "elf-nlr-b-l-cabinchassis",
     title: "Isuzu ELF-NLR B L Cabin Chassis",
     subtitle: "Spesifikasi Teknis",
-    "price": "439.000.000",
+    price: "439.000.000",
     sections: [
       {
         label: "DIMENSI",
@@ -1535,7 +1535,7 @@ export const specs ={
     slug: "elf-nlr-b-l-microbus-rtu",
     title: "Isuzu ELF-NLR B L Microbus (RTU)",
     subtitle: "Spesifikasi Teknis",
-    "price": "-",
+    price: "-",
     sections: [
       {
         label: "DIMENSI",
@@ -1622,7 +1622,7 @@ export const specs ={
   "giga-frr-q": {
     slug: "giga-frr-q",
     title: "GIGA FRR Q",
-    "price": [
+    price: [
           { "name": "Harga Off The Road", "value": "Rp629.000.000" },
           { "name": "Harga OTR Jawa Barat", "value": "Rp742.220.000" }
         ],
@@ -1723,7 +1723,7 @@ export const specs ={
     slug: "giga-ftr-p",
     title: "Isuzu GIGA-FTR P",
     subtitle: "Spesifikasi Teknis",
-    "price": {
+    price: {
         "off the road":"Rp. 701.000.000",
         "OTR Jawa Barat":"Rp. 827.180.000"
     },
@@ -1813,7 +1813,7 @@ export const specs ={
   "giga-ftr-s": {
     slug: "giga-ftr-s",
     title: "GIGA-FTR S",
-    "price": [
+    price: [
         { "name": "Harga Off The Road", "value": "Rp701.000.000" },
         { "name": "Harga OTR Jawa Barat", "value": "Rp831.900.000" }
       ],
@@ -1914,7 +1914,7 @@ export const specs ={
   "giga-ftr-t": {
     slug: "giga-ftr-t",
     title: "GIGA-FTR T",
-      "price": [
+      price: [
         { "name": "Harga Off The Road", "value": "Rp713.000.000" },
         { "name": "Harga OTR Jawa Barat", "value": "Rp841.340.000" }
       ],
@@ -2015,7 +2015,7 @@ export const specs ={
   "giga-fvr-l-d": {
     slug: "giga-fvr-l-d",
     title: "GIGA-FVR L D",
-    "price": [
+    price: [
         { "name": "Harga Off The Road", "value": "Rp782.000.000" },
         { "name": "Harga OTR Jawa Barat", "value": "Rp922.760.000" }
       ],
@@ -2116,7 +2116,7 @@ export const specs ={
   "giga-fvr-p": {
     slug: "giga-fvr-p",
     title: "GIGA-FVR P",
-      "price": [
+      price: [
         { "name": "Harga Off The Road", "value": "Rp788.000.000" },
         { "name": "Harga OTR Jawa Barat", "value": "Rp929.840.000" }
       ],
@@ -2217,7 +2217,7 @@ export const specs ={
   "giga-fvr-s": {
     slug: "giga-fvr-s",
     title: "GIGA-FVR S",
-      "price": [
+      price: [
         { "name": "Harga Off The Road", "value": "Rp798.000.000" },
         { "name": "Harga OTR Jawa Barat", "value": "Rp941.640.000" }
       ],
@@ -2318,7 +2318,7 @@ export const specs ={
   "giga-fvr-q": {
     slug: "giga-fvr-q",
     title: "GIGA-FVR Q",
-      "price": [
+      price: [
         { "name": "Harga Off The Road", "value": "Rp793.000.000" },
         { "name": "Harga OTR Jawa Barat", "value": "Rp935.740.000" }
       ],
@@ -2419,7 +2419,7 @@ export const specs ={
   "giga-fvr-u": {
     slug: "giga-fvr-u",
     title: "GIGA-FVR U",
-      "price": [
+      price: [
         { "name": "Harga Off The Road", "value": "Rp807.000.000" },
         { "name": "Harga OTR Jawa Barat", "value": "Rp952.260.000" }
       ],
@@ -2521,7 +2521,7 @@ export const specs ={
     slug: "giga-fvz-l-hp-mx",
     title: "Isuzu GIGA-FVZ L HP MX",
     subtitle: "Spesifikasi Teknis",
-    "price": {"off the road":"Rp. 1.152.000.000","OTR Jawa Barat":"Rp. 1.359.360.000"},
+    price: {"off the road":"Rp. 1.152.000.000","OTR Jawa Barat":"Rp. 1.359.360.000"},
     sections: [
       {
         label: "DIMENSI",
@@ -2604,7 +2604,7 @@ export const specs ={
     slug: "giga-fvz-n-hp",
     title: "Isuzu GIGA-FVZ N HP",
     subtitle: "Spesifikasi Teknis",
-    "price":{
+    price:{
         "off the road":"Rp. 1.157.000.000",
         "OTR Jawa Barat":"Rp. 1.365.260.000"
     },
@@ -2689,7 +2689,7 @@ export const specs ={
     slug: "giga-fvz-u-hp",
     title: "Isuzu GIGA-FVZ U HP",
     subtitle: "Spesifikasi Teknis",
-    "price": [
+    price: [
      {"name":"off the road","value":"Rp. 1.178.000.000"},
      {"name":"OTR Jawa Barat","value":"Rp. 1.390.040.000"}  
     ],
@@ -3193,7 +3193,7 @@ export const specs ={
     slug: "giga-gvr-j-hp-abs",
     title: "Isuzu GIGA-GVR J HP ABS",
     subtitle: "Spesifikasi Teknis",
-    "price": [
+    price: [
      {"name":"off the road","value":"Rp895.000.000"},
      {"name":"OTR Jawa Barat","value":"Rp1.056.100.000"}  
     ],
@@ -3279,7 +3279,7 @@ export const specs ={
     slug: "giga-gvz-k-hp-abs",
     title: "Isuzu GIGA-GVZ K HP ABS",
     subtitle: "Spesifikasi Teknis",
-    "price":{
+    price:{
         "off the road":"Rp. 1.181.000.000",
         "OTR Jawa Barat":"Rp. 1.393.580.000"
     },
@@ -3370,7 +3370,7 @@ export const specs ={
     slug: "giga-gxz-k-abs",
     title: "Isuzu GIGA-GXZ K ABS",
     subtitle: "Spesifikasi Teknis",
-    "price": [
+    price: [
         {"off the road":"Rp. 1.338.000.000"},
         {"OTR Jawa Barat":"Rp. 1.578.840.000"}
     ],

@@ -91,7 +91,7 @@
     {
       "id": "cv1",
       "name": "Isuzu Traga",
-      "category": "LCV",
+      "category": "PICKUP-LCV",
       "image": "https://astraisuzu.co.id/wp-content/uploads/2019/11/Isuzu-Traga-300x300.png",
       "specs": "/assets/specs/traga.pdf",
       "brochure": "/assets/brochure/traga.pdf",
@@ -100,7 +100,7 @@
     {
       "id": "cv2",
       "name": "Isuzu Elf",
-      "category": "LCV",
+      "category": "TRUCK-MEDIUM",
       "image": "https://astraisuzu.co.id/wp-content/uploads/2020/01/2022_NMR-_EURO4_Box-Besi-300x300.png",
       "specs": "/assets/specs/elf.pdf",
       "brochure": "/assets/brochure/elf.pdf",
@@ -109,7 +109,7 @@
     {
       "id": "cv3",
       "name": "Isuzu GIGA",
-      "category": "HCV",
+      "category": "TRUCK",
       "image": "https://astraisuzu.co.id/wp-content/uploads/2020/01/2022_FVR_EURO4_Bak-Besi-300x300.png",
       "specs": "/assets/specs/giga.pdf",
       "brochure": "/assets/brochure/giga.pdf",

@@ -20,12 +20,12 @@ export default function Home(){
               <h3 className="text-lg font-semibold mb-2">{item.name}</h3>
               <p className="text-sm text-gray-600 mb-4">{item.description}</p>
               <a
-                href={item.brochure}
-                target="_blank"
+                href={'/products/'+item.category}
+                // target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700"
+                className="inline-block bg-bahana text-white text-sm px-4 py-2 rounded hover:bg-blue-700"
               >
-                Lihat Brosur
+                Lihat Produk
               </a>
             </div>
           ))}

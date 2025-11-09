@@ -17,10 +17,19 @@ export default function ProductCard({ product, onClick }) { const [imageError, s
 
     // Tentukan konten visual
     const ImageOrPlaceholder = () => {
-        if (imageError || !image) {
+        if (!imageError || image) {  
+          // Tampilkan Gambar Asli
+          return (
+              <img
+                  src={'../'+image}
+                  alt={name}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  onError={handleImageError} // Panggil handler jika error
+              />
+          );
+        } else {
             // Tampilkan Placeholder: Kotak abu-abu dengan nama produk
-            console.log("lari kesini karena error>",name);
-            
+            console.log("lari kesini karena error>",name,'url image',image,'apakah error',imageError);
             return (
                 <div 
                     className="h-full w-full bg-slate-200 flex items-center justify-center text-center p-4"
@@ -30,17 +39,6 @@ export default function ProductCard({ product, onClick }) { const [imageError, s
                         [Gambar {name} Tidak Tersedia]
                     </span>
                 </div>
-            );
-        } else {
-            // Tampilkan Gambar Asli
-            
-            return (
-                <img
-                    src={image}
-                    alt={name}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    onError={handleImageError} // Panggil handler jika error
-                />
             );
         }
     };

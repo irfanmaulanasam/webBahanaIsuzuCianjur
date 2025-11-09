@@ -1,11 +1,12 @@
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { productsSummary } from "../data/products_summary"
 import ProductCard from "../components/productCard";
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate, useParams } from 'react-router-dom'; 
 
 export default function ProductsGrid({ data = productsSummary }) {
+  const {slug} = useParams()
   // state for category filter
-  const [category, setCategory] = useState("ALL");
+  const [category, setCategory] = useState('ALL');
   const navigate = useNavigate(); 
   
   const categories = useMemo(() => {
@@ -15,9 +16,13 @@ export default function ProductsGrid({ data = productsSummary }) {
 
   // filtered list using the selected category
   const filtered = useMemo(() => {
+    if (slug) {
+      return data.filter((p)=> p.category === slug);
+    }
     if (category === "ALL") return data;
     return data.filter((p) => p.category === category);
   }, [data, category]);
+  console.log('slug=>',slug,'=>',category,'categories=>',categories);
   
   // FUNGSI BARU: Untuk menangani klik dan navigasi
   const handleProductClick = (slug) => {
@@ -51,15 +56,12 @@ export default function ProductsGrid({ data = productsSummary }) {
         {/* grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((p) => (
-            // Menggunakan div sederhana sebagai wrapper item grid
             <div 
                 key={p.id}
-                // Hapus tombol aksi di bagian bawah
             >
               {/* Memanggil ProductCard dan meneruskan fungsi navigasi */}
               <ProductCard 
-                product={p} 
-                // Menggunakan p.slug (asumsi 'slug' ada di data produk)
+                product={p}
                 onClick={() => handleProductClick(p.slug)} 
               /> 
             </div>

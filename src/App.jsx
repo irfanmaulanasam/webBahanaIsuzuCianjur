@@ -21,6 +21,7 @@ export default function App() {
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/products" element={<ProductPage />} />
+        <Route path="/products/:slug" element={<ProductPage />} />
         <Route path="/spec/:slug" element={<SpecWrapper />} />
         <Route path="/spec" element={<Navigate to={`/spec/${defaultSlug}`} replace />}/>
         <Route path="/vehicle-cost/" element={<VehicleCost />} />
