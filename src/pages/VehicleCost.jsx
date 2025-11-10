@@ -10,6 +10,12 @@ const DEFAULT_DATA = {
   umurPakai: 5,
   nilaiSisa: 100000000,
   bungaKredit: 8,
+  
+  // 🟢 KOMPONEN KREDIT BARU
+  tenor: 4, 
+  uangMuka: 50000000, 
+  // -------------------------
+  
   kirPajak: 10000000,
   asuransi: 8000000,
   gajiSupir: 3000000,
@@ -20,13 +26,12 @@ const DEFAULT_DATA = {
   ban: 10000000,
 };
 
-// Fungsi utilitas untuk membersihkan harga string menjadi angka
+// Fungsi utilitas
 const cleanPrice = (priceString) => {
     const rawPrice = priceString.replace(/[^0-9]/g, '');
-    return parseInt(rawPrice, 10) || DEFAULT_DATA.hargaTruk; // Fallback ke harga default jika gagal
+    return parseInt(rawPrice, 10) || DEFAULT_DATA.hargaTruk;
 };
 
-// Fungsi Autocomplete di luar komponen untuk kebersihan
 const autoCompleteSlug = (shortSlug) => {
     if (!shortSlug) return null;
     if (shortSlug === "blindvan") return "traga-blind-van";
@@ -43,18 +48,6 @@ const autoCompleteSlug = (shortSlug) => {
     }
     return shortSlug;
 };
-// Di dalam VehicleCostCalculator:
-const handleChange = (e) => {
-    const { name, value } = e.target;
-    
-    // Nilai 'value' dari NumericFormat sudah berupa angka murni (atau 0 jika kosong), 
-    // jadi kita tidak perlu lagi konversi string atau cek kosong/0.
-    setData(prevData => ({ 
-        ...prevData, 
-        // Langsung gunakan nilai yang dikirim dari NumericFormat
-        [name]: value 
-    }));
-};
 
 export default function VehicleCostCalculator() {
   const [data, setData] = useState(DEFAULT_DATA);
@@ -64,9 +57,8 @@ export default function VehicleCostCalculator() {
 
   // --- LOGIKA LOAD DATA & REDIRECT ---
   useEffect(() => {
-    // 1. KONDISI DEFAULT (/vehicle-cost): Tidak ada slug, tampilkan data default
+    // 1. KONDISI DEFAULT (/vehicle-cost)
     if (!slug) {
-      // Jika saat ini state berbeda dari default, reset ke default
       if (data.hargaTruk !== DEFAULT_DATA.hargaTruk) {
         setData(DEFAULT_DATA);
       }
@@ -76,9 +68,7 @@ export default function VehicleCostCalculator() {
     // 2. KONDISI SLUG ADA: Autocomplete & Redirect
     const actualSlug = autoCompleteSlug(slug);
     
-    // Jika slug di URL belum benar, paksa redirect ke slug yang benar
     if (actualSlug && actualSlug !== slug) {
-        // Redirect yang aman, tetap di path /vehicle-cost
         navigate(`/vehicle-cost/${actualSlug}`, { replace: true }); 
         return; 
     }
@@ -89,13 +79,10 @@ export default function VehicleCostCalculator() {
     if (found) {
         const priceNumber = cleanPrice(found.price);
 
-        // ✅ SOLUSI UNTUK DATA HILANG & UNCONTROLLED INPUT:
-        // Gunakan prevData dan hanya timpa hargaTruk
         setData(prevData => ({
-          ...prevData, // Memastikan semua key perhitungan lain tetap ada
+          ...prevData, 
           hargaTruk: priceNumber, 
-          // Jika ada data lain di 'specs' (misal rasioBBM) yang ingin di-update:
-          // rasioBBM: found.rasioBBM || prevData.rasioBBM,
+          // Jika ada data lain di 'specs' yang ingin di-update, tambahkan di sini
         }));
     } else {
         // Fallback: Jika slug valid namun tidak ditemukan
@@ -104,13 +91,11 @@ export default function VehicleCostCalculator() {
         if (fallbackSlug) {
             navigate(`/vehicle-cost/${fallbackSlug}`, { replace: true });
         } else {
-            // Jika benar-benar tidak ditemukan, reset ke default untuk menampilkan kalkulator
             setData(DEFAULT_DATA);
         }
     }
   }, [slug, navigate]); 
-  // Dependency 'data' dihapus dari sini agar tidak memicu infinite loop saat setData(DEFAULT_DATA)
-
+  
   // --- HANDLER ---
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -124,7 +109,7 @@ export default function VehicleCostCalculator() {
 
   // --- PERHITUNGAN (useMemo) ---
   const result = useMemo(() => {
-    // ✅ SOLUSI UNTUK NaN: Gunakan 0 atau 1 sebagai fallback untuk mencegah NaN
+    // Input Data dengan Fallback
     const hTruk = data.hargaTruk || 0;
     const uPakai = data.umurPakai || 1; 
     const nSisa = data.nilaiSisa || 0;
@@ -137,20 +122,55 @@ export default function VehicleCostCalculator() {
     const jTahunan = data.jarakTahunan || 1; 
     const pRawat = data.perawatan || 0;
     const banCost = data.ban || 0;
+    // ------------------------------------
+    const tenor = data.tenor || 1; // Tenor dalam tahun (minimal 1)
+    const uMuka = data.uangMuka || 0; 
+    // ------------------------------------
+    
+    // 1. KOMPONEN KREDIT (FLAT RATE)
+    const nilaiPinjaman = hTruk > uMuka ? hTruk - uMuka : 0; // Pastikan pinjaman tidak negatif
 
+    // Total Bunga Selama Tenor
+    const totalBungaFlat = nilaiPinjaman * (bKredit / 100) * tenor;
+    
+    // Angsuran Pokok / Tahun
+    const pokokTahunan = tenor > 0 ? nilaiPinjaman / tenor : nilaiPinjaman; 
 
-    const penyusutan = (hTruk - nSisa) / uPakai;
-    const bunga = (hTruk * (bKredit / 100));
-    const fixedCost = penyusutan + bunga + kPajak + asu + gSupir * 12;
-    const konsumsiBBM = jTahunan / rBBM;
+    // Bunga Tahunan (Flat Rate)
+    const bungaTahunan = tenor > 0 ? totalBungaFlat / tenor : totalBungaFlat;
+
+    // Total Angsuran Kredit per Tahun
+    const angsuranTahunan = pokokTahunan + bungaTahunan;
+
+    
+    // 2. BIAYA TETAP (FIXED COST)
+    // Penyusutan Ekonomi (untuk Nilai Sisa):
+    const penyusutanEkonomi = uPakai > 0 ? (hTruk - nSisa) / uPakai : (hTruk - nSisa); 
+
+    // Fixed Cost = Angsuran Tahunan + Biaya Tetap Lain
+    // (Angsuran Tahunan sudah mencakup Angsuran Pokok dan Bunga)
+    const fixedCost = angsuranTahunan + kPajak + asu + gSupir * 12;
+    
+    
+    // 3. BIAYA VARIABEL
+    const konsumsiBBM = rBBM > 0 ? jTahunan / rBBM : 0;
     const biayaBBM = konsumsiBBM * hSolar;
     const variableCost = biayaBBM + pRawat + banCost;
-    const totalCost = fixedCost + variableCost;
     
-    // Cegah pembagian dengan nol
+    // 4. TOTAL & PER KM
+    const totalCost = fixedCost + variableCost;
     const costPerKm = jTahunan > 0 ? totalCost / jTahunan : 0; 
 
-    return { penyusutan, bunga, fixedCost, variableCost, totalCost, costPerKm };
+    return { 
+        penyusutan: penyusutanEkonomi, 
+        bunga: bungaTahunan, 
+        pokokTahunan, 
+        angsuranTahunan, 
+        fixedCost, 
+        variableCost, 
+        totalCost, 
+        costPerKm 
+    };
   }, [data]);
 
 
@@ -176,7 +196,6 @@ export default function VehicleCostCalculator() {
               <span className="text-xs text-gray-500">
                 Harga total kendaraan beserta perlengkapan tambahan seperti box atau GPS.
               </span>
-            {/* Input lainnya menggunakan data yang sudah di-spread dari DEFAULT_DATA */}
             <Input 
               label="Umur Pakai (tahun)"
               name="umurPakai" value={data.umurPakai}
@@ -196,20 +215,45 @@ export default function VehicleCostCalculator() {
             <span className="text-xs text-gray-500">
               Nilai jual kembali kendaraan di akhir umur pakai
             </span>
+
+            {/* Input Uang Muka Baru */}
+            <Input 
+                label="Uang Muka (Down Payment)"
+                name="uangMuka"
+                value={data.uangMuka}
+                onChange={handleChange}
+                info="Uang muka yang dibayarkan di awal transaksi kredit." 
+            />
+            <span className="text-xs text-gray-500">
+                Uang muka yang dibayarkan di awal transaksi kredit
+            </span>
+            
+            {/* Input Tenor Baru */}
+            <Input 
+                label="Tenor Kredit (Tahun)"
+                name="tenor"
+                value={data.tenor}
+                onChange={handleChange}
+                info="Jangka waktu kredit dalam tahun." 
+            />
+            <span className="text-xs text-gray-500">
+                Jangka waktu kredit dalam tahun
+            </span>
+
+            {/* Input Bunga Kredit (%) */}
             <Input
-              label="Bunga Kredit (%)"
+              label="Bunga Kredit Tahunan (%)"
               name="bungaKredit"
               value={data.bungaKredit}
               onChange={handleChange}
-              info="Persentase bunga tahunan jika pembelian menggunakan kredit." 
+              info="Persentase bunga tahunan yang diterapkan oleh lembaga pembiayaan (flat rate)." 
             />
             <span className="text-xs text-gray-500">
-              Persentase bunga tahunan jika pembelian menggunakan kredit
+              Persentase bunga tahunan yang diterapkan oleh lembaga pembiayaan (flat rate)
             </span>
           </Section>
 
-          <Section title="Biaya Tetap">
-            {/* Input lainnya */}
+          <Section title="Biaya Tetap Lain">
             <Input 
               label="KIR & Pajak / Tahun"
               name="kirPajak"
@@ -245,7 +289,6 @@ export default function VehicleCostCalculator() {
 
         <div className="space-y-6">
           <Section title="Biaya Variabel">
-            {/* Input lainnya */}
             <Input 
               label="Harga Solar per Liter"
               name="hargaSolar"
@@ -262,16 +305,39 @@ export default function VehicleCostCalculator() {
               onChange={handleChange}
               info="Berapa kilometer yang bisa ditempuh tiap 1 liter solar." 
             />
-            <Input label="Jarak Tempuh per Tahun (Km)" name="jarakTahunan" value={data.jarakTahunan} onChange={handleChange} info="Perkiraan total jarak yang ditempuh kendaraan dalam setahun." />
-            <Input label="Perawatan / Tahun" name="perawatan" value={data.perawatan} onChange={handleChange} info="Biaya servis rutin, oli, dan spare part." />
-            <Input label="Ban / Tahun" name="ban" value={data.ban} onChange={handleChange} info="Rata-rata biaya penggantian ban tahunan." />
+            <Input 
+                label="Jarak Tempuh per Tahun (Km)" 
+                name="jarakTahunan" 
+                value={data.jarakTahunan} 
+                onChange={handleChange} 
+                info="Perkiraan total jarak yang ditempuh kendaraan dalam setahun." 
+            />
+            <Input 
+                label="Perawatan / Tahun" 
+                name="perawatan" 
+                value={data.perawatan} 
+                onChange={handleChange} 
+                info="Biaya servis rutin, oli, dan spare part." 
+            />
+            <Input 
+                label="Ban / Tahun" 
+                name="ban" 
+                value={data.ban} 
+                onChange={handleChange} 
+                info="Rata-rata biaya penggantian ban tahunan." 
+            />
           </Section>
 
           {/* HASIL PERHITUNGAN */}
           <Section title="Hasil Perhitungan">
-            <Result label="Total Fixed Cost" value={formatRp(result.fixedCost)} />
+            <Result label="Angsuran Pokok Kredit / Tahun" value={formatRp(result.pokokTahunan)} />
+            <Result label="Bunga Kredit / Tahun" value={formatRp(result.bunga)} />
+            <Result label="Total Angsuran Kredit / Tahun" value={formatRp(result.angsuranTahunan)} highlight />
+            <hr className="my-2"/>
+            <Result label="Penyusutan Ekonomi / Tahun" value={formatRp(result.penyusutan)} />
+            <Result label="Total Fixed Cost (Termasuk Angsuran)" value={formatRp(result.fixedCost)} />
             <Result label="Total Variable Cost" value={formatRp(result.variableCost)} />
-            <Result label="Total Biaya per Tahun" value={formatRp(result.totalCost)} highlight />
+            <Result label="Total Biaya Operasional / Tahun" value={formatRp(result.totalCost)} highlight />
             <Result label="Biaya per Km" value={`${formatRp(result.costPerKm)}/km`} highlight />
           </Section>
         </div>
@@ -280,7 +346,7 @@ export default function VehicleCostCalculator() {
   );
 }
 
-// ==== Komponen kecil (Direvisi untuk Nilai Default) ====
+// ==== Komponen kecil (Tetap sama) ====
 
 function Section({ title, children }) {
   return (
@@ -292,34 +358,32 @@ function Section({ title, children }) {
 }
 
 function Input({ label, name, value, onChange, info }) {
+  // Tentukan apakah input perlu prefix mata uang
+  const isCurrency = ['hargaTruk', 'nilaiSisa', 'uangMuka', 'kirPajak', 'asuransi', 'gajiSupir', 'perawatan', 'ban'].includes(name);
+
   return (
     <div>
       <label className="font-medium text-sm text-gray-700 flex items-center gap-1">
         {label} <Info className="w-4 h-4 text-gray-400" title={info} />
       </label>
       
-      {/* MENGGUNAKAN NUMERIC FORMAT */}
       <NumericFormat
-        // Perluas props agar sesuai dengan input lama
         name={name}
-        value={value ?? ''} // Pastikan nilai adalah string kosong jika null/undefined
+        value={value ?? ''}
         
         // --- Konfigurasi Formatting ---
-        thousandSeparator="." // Pemisah ribuan (titik)
-        decimalSeparator=","  // Pemisah desimal (koma)
-        prefix={name === 'hargaTruk' ? 'Rp ' : ''} // Tambahkan prefix Rp hanya untuk Harga Truk
-        allowNegative={false} // Pastikan input tidak bisa negatif
+        thousandSeparator="."
+        decimalSeparator=","
+        prefix={isCurrency ? 'Rp ' : ''} // Tambahkan prefix Rp berdasarkan isCurrency
+        suffix={name === 'bungaKredit' ? ' %' : (name === 'rasioBBM' ? ' Km/L' : (name === 'jarakTahunan' ? ' Km' : ''))} // Tambahkan suffix untuk persentase, KM/L, atau KM
+        allowNegative={false}
+        decimalScale={name === 'bungaKredit' || name === 'rasioBBM' ? 2 : 0} // Izinkan desimal untuk Bunga dan Rasio BBM
         
         // --- Integrasi Handler ---
         onValueChange={(values) => {
-          // values.floatValue adalah angka murni yang bisa digunakan di state
-          // values.value adalah string terformat yang ditampilkan
-          
-          // Panggil onChange milik parent component (VehicleCostCalculator)
           onChange({ 
             target: { 
               name: name,
-              // Kirim angka murni (floatValue) ke handleChange
               value: values.floatValue ?? 0 
             } 
           });
@@ -327,13 +391,11 @@ function Input({ label, name, value, onChange, info }) {
         
         className="w-full border rounded-lg p-2 mt-1 text-sm"
       />
-      {/* ... (Hilangkan span info yang duplikat jika ada) ... */}
     </div>
   );
 }
 
 function Result({ label, value, highlight }) {
-  // Hanya menampilkan pesan error jika hasilnya NaN
   if (!value) {
     value = "data tidak ditemukan"
   }

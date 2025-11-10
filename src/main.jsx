@@ -1,14 +1,11 @@
+// src/main.jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
-import { BrowserRouter } from "react-router-dom";
+import { RouterProvider } from "react-router-dom"; // Hapus BrowserRouter
+import { router } from "./router.jsx"; // 👈 IMPORT OBJEK ROUTER DARI router.jsx
 import "./main.css"
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
-

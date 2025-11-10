@@ -42,6 +42,7 @@ export default function SimulasiKredit() {
   }, [dpPercent, otrPrice]);
 
   const formattedOtr = formatRupiah(otrPrice);
+  const isSimulationReady = otrPrice > 0 && dpRp > 0 && selectedModel !== "";
 
   return (
     <div className="flex justify-center p-4 sm:p-6 md:p-8 bg-gray-50 dark:bg-gray-800">
@@ -139,31 +140,45 @@ export default function SimulasiKredit() {
             </label>
           </div>
         </div>
-
         {/* Hasil Simulasi */}
         <div className="w-full lg:w-1/2 p-4 sm:p-6">
           <h2 className="text-lg sm:text-xl font-semibold dark:text-white mb-6 text-center lg:text-left">
-            Hasil Simulasi Cicilan
+            Hasil Simulasi Cicilan {selectedModel}
           </h2>
-          {LeasingData.map((leasing) => (
-            <div key={leasing.name} className="mb-6">
-              <h3 className="font-semibold dark:text-white text-center lg:text-left">
-                {leasing.name}
-              </h3>
-              {leasing.tenor.map((tenor) => {
-                const cicilan = hitungAngsuran(otrPrice, dpRp, tenor, leasing.rate);
-                return (
-                  <div
-                    key={tenor}
-                    className="flex justify-between p-2 border-b text-sm sm:text-base dark:border-gray-700"
-                  >
-                    <span>{tenor} bulan</span>
-                    <span>{formatRupiah(cicilan)}</span>
-                  </div>
-                );
-              })}
+          
+          {/* 🟢 Terapkan Kondisi di Sini */}
+          {isSimulationReady ? (
+            // --- KONTEN HASIL (jika siap) ---
+            <>
+              {LeasingData.map((leasing) => (
+                <div key={leasing.name} className="mb-6">
+                  <h3 className="font-semibold dark:text-white text-center lg:text-left">
+                    {leasing.surname}
+                  </h3>
+                  <span className="text-xs text-gray-400">{leasing.name}</span>
+                  {leasing.tenor.map((tenor) => {
+                    const cicilan = hitungAngsuran(otrPrice, dpRp, tenor, leasing.rate);
+                    return (
+                      <div
+                        key={tenor}
+                        className="flex justify-between p-2 border-b text-sm sm:text-base dark:border-gray-700"
+                      >
+                        <span>{tenor} bulan</span>
+                        <span>{formatRupiah(cicilan)}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              ))}
+            </>
+          ) : (
+            // --- KONTEN PESAN (jika belum siap) ---
+            <div className="flex items-center justify-center h-full p-8 text-center text-gray-500 dark:text-gray-400">
+                <p className="font-medium">
+                    Mohon **Pilih Segmen** dan **Model** kendaraan, serta pastikan **Harga OTR** dan **Uang Muka** sudah terisi untuk menampilkan simulasi kredit.
+                </p>
             </div>
-          ))}
+          )}
         </div>
       </div>
     </div>

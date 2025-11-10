@@ -1,12 +1,12 @@
-import HeaderLama from "../components/Headerlama";
-// import Header from "../modules/header/Header"
+import { Outlet ,ScrollRestoration} from "react-router-dom";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Outlet } from "react-router-dom";
 
 export default function Layout() {
   return (
     <>
-        <HeaderLama />
+      <ScrollRestoration/>
+        <Header />
         <main className="min-h-screen container mx-auto px-4 py-8">
           <Outlet />
         </main>
