@@ -22,7 +22,7 @@ export default function Home(){
               <a
                 href={'/products/'+item.category}
                 rel="noopener noreferrer"
-                className="inline-block bg-bahana text-white text-sm px-4 py-2 rounded hover:bg-blue-700"
+                className="inline-block bg-bahana-primary text-white text-sm px-4 py-2 rounded hover:bg-bahana-light"
               >
                 Lihat Produk
               </a>
