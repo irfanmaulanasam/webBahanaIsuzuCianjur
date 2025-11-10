@@ -1,6 +1,5 @@
 // src/data/newsData.js
-
-export const newsContent = [
+const newsContent = [
     // --- PROMO ---
     {
         id: 'p001',
@@ -45,6 +44,9 @@ export const newsContent = [
     },
     // ... Tambahkan data lainnya
 ];
-
 // Export semua category yang ada (untuk filtering/tab)
-export const allCategories = ['promo', 'event', 'berita'];
+const allCategories = ['promo', 'event', 'berita'];
+export default {
+  newsContent,
+  allCategories
+};

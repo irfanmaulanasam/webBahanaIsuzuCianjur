@@ -1,26 +1,17 @@
 // src/data/newsUtils.js
 
-import newsData,{ newsContent } from "./newsData";
+import newsData from "./newsData"; // ✅ Default import
+
+const { newsContent } = newsData; // Destructure
 
 export const getAllNewsSorted = () => {
-    // Pastikan sorting dari terbaru ke terlama
     return [...newsContent].sort((a, b) => new Date(b.date) - new Date(a.date));
 };
 
-/**
- * Mendapatkan satu item konten berdasarkan slug.
- * @param {string} slug - Slug URL item.
- * @returns {Object|null} Item konten atau null jika tidak ditemukan.
- */
 export const getNewsBySlug = (slug) => {
     return newsContent.find(item => item.slug === slug) || null;
 };
 
-/**
- * Mendapatkan konten berdasarkan tipe (promo, event, berita).
- * @param {string} type - Tipe konten yang dicari.
- * @returns {Array} Daftar konten berdasarkan tipe.
- */
 export const getNewsByType = (type) => {
     const all = getAllNewsSorted();
     return all.filter(item => item.type.toLowerCase() === type.toLowerCase());

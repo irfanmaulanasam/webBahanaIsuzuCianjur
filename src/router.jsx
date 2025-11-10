@@ -1,6 +1,7 @@
 // src/router.jsx
 import { lazy, Suspense } from 'react' // 👈 Import lazy dan Suspense
 import { createBrowserRouter } from 'react-router-dom'
+import LoadingSpinner from './components/LoadingSpinner';
 import Layout from './layouts/LayoutPage' 
 // import { allSpecSlugs } from "./data/specs"; // Dapatkan jika diperlukan
 
@@ -26,11 +27,11 @@ const NotFound = lazy(() => import('./pages/NotFound.jsx'))
 
 
 // Komponen Fallback saat halaman sedang dimuat
-const LoadingFallback = () => (
-    <div className="flex justify-center items-center h-screen text-xl font-semibold text-gray-700">
-        Memuat Halaman...
-    </div>
-);
+// const LoadingFallback = () => (
+//     <div className="flex justify-center items-center h-screen text-xl font-semibold text-gray-700">
+//         Memuat Halaman...
+//     </div>
+// );
 
 
 // =======================================================
@@ -41,42 +42,124 @@ export const router = createBrowserRouter([
     path: '/',
     // Gunakan Suspense di elemen teratas untuk menangani loading state dari semua child rute
     element: (
-        <Suspense fallback={<LoadingFallback />}>
+        <Suspense fallback={<LoadingSpinner />}>
             <Layout />
         </Suspense>
     ), 
     children: [
-      { index: true, element: <Home /> },
+      { index: true, 
+        element:(
+          <Suspense fallback={<LoadingSpinner/>}>
+         <Home /> 
+         </Suspense>
+         )
+      },
       
       // Rute Products
-      { path: 'products', element: <ProductPage /> },
-      { path: 'products/unit-order', element: <UnitOrderForm /> },
-      { path: 'products/:slug', element: <ProductPage /> },
+      { path: 'products',
+        element:(
+          <Suspense fallback={<LoadingSpinner/>}>
+         <ProductPage />
+         </Suspense>
+         )
+      },
+      { path: 'products/unit-order', element:(
+          <Suspense fallback={<LoadingSpinner/>}>
+            <UnitOrderForm /> 
+         </Suspense>
+         ) 
+        },
+      { path: 'products/:slug', element:(
+          <Suspense fallback={<LoadingSpinner/>}>
+         <ProductPage /> 
+         </Suspense>
+         )
+      },
       
       // Rute Spesifikasi
-      { path: 'spec/:slug', element: <SpecWrapper /> },
-      // ... Anda perlu menangani redirect untuk '/spec' di SpecWrapper atau menggunakan redirect()
+      { path: 'spec/:slug', element:(
+          <Suspense fallback={<LoadingSpinner/>}>
+           <SpecWrapper /> 
+         </Suspense>
+         )
+      },
       
       // Rute Vehicle Cost
-      { path: 'vehicle-cost', element: <VehicleCost /> },
-      { path: 'vehicle-cost/:slug', element: <VehicleCost /> },
+      { path: 'vehicle-cost', element:(
+        <Suspense fallback={<LoadingSpinner/>}>
+           <VehicleCost /> 
+         </Suspense>
+         )
+      },
+      { path: 'vehicle-cost/:slug', element:(
+          <Suspense fallback={<LoadingSpinner/>}>
+         <VehicleCost /> 
+         </Suspense>
+         )
+      },
       
       // Rute Lain
-      { path: 'about', element: <AboutPage /> },
-      { path: 'news', element: <NewsPages/>},
-      { path: 'search', element: <SearchPage /> },
-      { path: 'news/:slug', element: <NewsDetailPage /> },
+      { path: 'about', element:(
+          <Suspense fallback={<LoadingSpinner/>}>
+            <AboutPage /> 
+         </Suspense>
+         )
+      },
+      { path: 'news', element:(
+        <Suspense fallback={<LoadingSpinner/>}>
+          <NewsPages/>
+         </Suspense>
+         )
+      },
+      { path: 'search', element:(
+        <Suspense fallback={<LoadingSpinner/>}>
+          <SearchPage /> 
+         </Suspense>
+         )
+      },
+      { path: 'news/:slug', element:(
+          <Suspense fallback={<LoadingSpinner/>}>
+          <NewsDetailPage /> 
+         </Suspense>
+         )
+      },
       
       // Rute Services
-      { path: 'services/dealer-services', element: <BookingServiceForm /> },
-      { path: 'services/bib-services', element: <BookingServiceFormBIB /> },
-      { path: 'services/sparepart-order', element: <SparepartOrderForm /> },
-      
-      { path: 'outlet', element: <OutletPage /> },
-      { path: 'credit-simulator', element:<CreditSimulatorPages/> },
+      { path: 'services/dealer-services', element:(
+          <Suspense fallback={<LoadingSpinner/>}>
+           <BookingServiceForm />
+         </Suspense>
+         )
+      },
+      { path: 'services/bib-services', element:(
+          <Suspense fallback={<LoadingSpinner/>}>
+           <BookingServiceFormBIB /> 
+         </Suspense>
+         )
+      },
+      { path: 'services/sparepart-order', element:(
+          <Suspense fallback={<LoadingSpinner/>}>
+           <SparepartOrderForm />
+         </Suspense>
+         )
+       },
+      { path: 'outlet', element:(
+          <Suspense fallback={<LoadingSpinner/>}>
+           <OutletPage /> 
+         </Suspense>
+         )
+      },
+      { path: 'credit-simulator', element:(
+          <Suspense fallback={<LoadingSpinner/>}>
+            <CreditSimulatorPages/> 
+         </Suspense>
+         )
+},
       
       // Rute 404 (Wildcard)
-      { path: '*', element: <NotFound/> }
+      { path: '*',
+        element: <NotFound/> 
+      }
     ]
   }
 ]);
