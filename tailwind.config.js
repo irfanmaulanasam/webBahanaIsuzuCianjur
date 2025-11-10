@@ -9,7 +9,12 @@ export default {
     extend: {
       colors: {
         isuzu: "var(--isuzu-red)",
-        bahana:"var(--bahana-blue)"
+        'bahana': {
+          'primary':'#204066',
+          'light': '#0363c4ff', // Biru Tua/Navy
+          'light-10': '#a2c4f8ff',   // Biru Sangat Cerah (untuk hover/latar belakang submenu mobile)
+          'dark': '#003A75',
+        }
       },
     },
   },
