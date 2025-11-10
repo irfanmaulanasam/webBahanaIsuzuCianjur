@@ -10,6 +10,10 @@ import VehicleCost from "./pages/VehicleCost";
 import CreditSimulatorPages from "./pages/CreditSimulatorPages";
 import SearchPage from "./pages/SearchPage";
 import NewsPages from "./pages/NewsPages.jsx";
+import UnitOrderForm from "./pages/UnitOrderForm.jsx"
+import BookingServiceForm from "./pages/BookingServiceForm.jsx"
+import BookingServiceFormBIB from "./pages/BookingServiceFormBIB.jsx"
+import SparepartOrderForm from "./pages/SparepartOrderForm.jsx"
 import NotFound from "./pages/NotFound.jsx";
 import { allSpecSlugs } from "./data/specs";
 
@@ -21,6 +25,7 @@ export default function App() {
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/products" element={<ProductPage />} />
+        <Route path="/products/unit-order" element={<UnitOrderForm />} />
         <Route path="/products/:slug" element={<ProductPage />} />
         <Route path="/spec/:slug" element={<SpecWrapper />} />
         <Route path="/spec" element={<Navigate to={`/spec/${defaultSlug}`} replace />}/>
@@ -29,7 +34,9 @@ export default function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/news" element={<NewsPages/>} />
         <Route path="/search" element={<SearchPage />} />
-        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/services/dealer-services" element={<BookingServiceForm />} />
+        <Route path="/services/bib-services" element={<BookingServiceFormBIB />} />
+        <Route path="/services/sparepart-order" element={<SparepartOrderForm />} />
         <Route path="/outlet" element={<OutletPage />} />
         <Route path="/credit-simulator/" element={<CreditSimulatorPages />} />
         <Route path="*" element={<NotFound/>} />
