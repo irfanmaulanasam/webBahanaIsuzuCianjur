@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { NumericFormat } from "react-number-format";
-import { IsuzuPrices, getUniqueTypes } from "../data/isuzuPrices";
-import { LeasingData } from "../data/LeasingData";
+// Asumsi path dan struktur data ini sudah benar
+import { IsuzuPrices, getUniqueTypes } from "../data/isuzuPrices"; 
+import { LeasingData } from "../data/LeasingData"; 
 
+// Fungsi utilitas format
 const formatRupiah = (number) =>
   new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -10,11 +12,18 @@ const formatRupiah = (number) =>
     minimumFractionDigits: 0,
   }).format(number);
 
+// Fungsi perhitungan (Asumsi: Flat Rate seperti kode Anda, tapi dibuat lebih aman)
 const hitungAngsuran = (otrNumber, dp, tenor, bunga) => {
+  if (otrNumber <= 0 || tenor <= 0) return 0;
+
   const loanAmount = otrNumber - dp;
-  const totalBunga = loanAmount * bunga * (tenor / 12);
-  return (loanAmount + totalBunga) / tenor;
+  // Perhitungan Bunga (Flat Rate Tahunan)
+  // Catatan: 'bunga' di sini diasumsikan sebagai persentase desimal (misal 0.08 untuk 8%)
+  const totalBunga = loanAmount * bunga * (tenor / 12); 
+  
+  return (loanAmount + totalBunga) / tenor; // Angsuran Bulanan
 };
+
 
 export default function SimulasiKredit() {
   const [selectedType, setSelectedType] = useState("");
@@ -29,6 +38,7 @@ export default function SimulasiKredit() {
     .flat()
     .filter((item) => item.type === selectedType);
 
+  // --- EFFECT UNTUK HARGA OTR ---
   useEffect(() => {
     const modelData = filteredModels.find(
       (item) => item.model === selectedModel
@@ -37,12 +47,50 @@ export default function SimulasiKredit() {
     else setOtrPrice(0);
   }, [selectedModel, filteredModels]);
 
+  // --- EFFECT UNTUK DP (Percent ke Rupiah) ---
   useEffect(() => {
-    setDpRp(Math.round((dpPercent / 100) * otrPrice));
+    // Pastikan otrPrice > 0 sebelum menghitung DP Rupiah
+    if (otrPrice > 0) {
+        setDpRp(Math.round((dpPercent / 100) * otrPrice));
+    } else {
+        setDpRp(0);
+    }
   }, [dpPercent, otrPrice]);
 
-  const formattedOtr = formatRupiah(otrPrice);
-  const isSimulationReady = otrPrice > 0 && dpRp > 0 && selectedModel !== "";
+  
+  // --- USEMEMO UNTUK SEMUA HASIL PERHITUNGAN DAN VALIDASI ---
+  const simulationResults = useMemo(() => {
+    
+    // 1. VALIDASI KESIAPAN DATA
+    const isReady = otrPrice > 0 && dpRp > 0 && selectedModel !== "";
+    
+    if (!isReady) {
+        return { isReady: false, formattedOtr: formatRupiah(otrPrice), results: [] };
+    }
+    
+    // 2. JIKA SIAP, LAKUKAN PERHITUNGAN
+    
+    // Hasil dihitung untuk setiap leasing dan tenor
+    const results = LeasingData.map(leasing => ({
+        ...leasing,
+        tenorData: leasing.tenor.map(tenor => {
+            const cicilan = hitungAngsuran(otrPrice, dpRp, tenor, leasing.rate);
+            
+            return {
+                tenor,
+                cicilan,
+                formattedCicilan: formatRupiah(cicilan)
+            };
+        })
+    }));
+
+    return { 
+        isReady: true, 
+        formattedOtr: formatRupiah(otrPrice), 
+        results 
+    };
+    
+  }, [otrPrice, dpRp, selectedModel]); // Dependensi: hanya state input yang relevan
 
   return (
     <div className="flex justify-center p-4 sm:p-6 md:p-8 bg-gray-50 dark:bg-gray-800">
@@ -53,17 +101,6 @@ export default function SimulasiKredit() {
           <h2 className="text-lg sm:text-xl font-semibold dark:text-white mb-6 text-center lg:text-left">
             Simulasi Kredit Mobil Baru
           </h2>
-
-          {/* Merek */}
-          {/* <label className="block mb-4">
-            <span className="text-sm text-gray-700 dark:text-gray-300">Merek</span>
-            <input
-              type="text"
-              value="ISUZU"
-              disabled
-              className="w-full px-3 py-2 border rounded-md bg-gray-100 dark:bg-gray-700 dark:text-gray-300 font-semibold text-center"
-            />
-          </label> */}
 
           {/* Tipe */}
           <label className="block mb-4">
@@ -107,11 +144,11 @@ export default function SimulasiKredit() {
             </select>
           </label>
 
-          {/* Harga OTR */}
+          {/* Harga OTR (Menggunakan hasil dari useMemo) */}
           <div className="bg-gray-100 dark:bg-gray-800 p-3 rounded-md mb-4">
             <span className="text-xs font-medium text-gray-500 dark:text-gray-400">Harga OTR</span>
             <p className="font-bold text-lg text-isuzu dark:text-isuzu-dark">
-              {formattedOtr}
+              {simulationResults.formattedOtr}
             </p>
           </div>
 
@@ -140,41 +177,38 @@ export default function SimulasiKredit() {
             </label>
           </div>
         </div>
-        {/* Hasil Simulasi */}
+
+        {/* Hasil Simulasi - CONDITIONAL RENDERED */}
         <div className="w-full lg:w-1/2 p-4 sm:p-6">
           <h2 className="text-lg sm:text-xl font-semibold dark:text-white mb-6 text-center lg:text-left">
-            Hasil Simulasi Cicilan {selectedModel}
+            Hasil Simulasi Cicilan
           </h2>
           
-          {/* 🟢 Terapkan Kondisi di Sini */}
-          {isSimulationReady ? (
-            // --- KONTEN HASIL (jika siap) ---
+          {simulationResults.isReady ? (
+            // --- KONTEN HASIL (Mapping data dari useMemo) ---
             <>
-              {LeasingData.map((leasing) => (
+              {simulationResults.results.map((leasing) => (
                 <div key={leasing.name} className="mb-6">
                   <h3 className="font-semibold dark:text-white text-center lg:text-left">
                     {leasing.surname}
                   </h3>
                   <span className="text-xs text-gray-400">{leasing.name}</span>
-                  {leasing.tenor.map((tenor) => {
-                    const cicilan = hitungAngsuran(otrPrice, dpRp, tenor, leasing.rate);
-                    return (
-                      <div
-                        key={tenor}
-                        className="flex justify-between p-2 border-b text-sm sm:text-base dark:border-gray-700"
-                      >
-                        <span>{tenor} bulan</span>
-                        <span>{formatRupiah(cicilan)}</span>
-                      </div>
-                    );
-                  })}
+                  {leasing.tenorData.map((data) => (
+                    <div
+                      key={data.tenor}
+                      className="flex justify-between p-2 border-b text-sm sm:text-base dark:border-gray-700"
+                    >
+                      <span>{data.tenor} bulan</span>
+                      <span className="font-semibold">{data.formattedCicilan}</span>
+                    </div>
+                  ))}
                 </div>
               ))}
             </>
           ) : (
             // --- KONTEN PESAN (jika belum siap) ---
-            <div className="flex items-center justify-center h-full p-8 text-center text-gray-500 dark:text-gray-400">
-                <p className="font-medium">
+            <div className="flex items-center justify-center min-h-[300px] p-8 text-center bg-gray-50 rounded-lg dark:bg-gray-800">
+                <p className="font-medium text-gray-600 dark:text-gray-400">
                     Mohon **Pilih Segmen** dan **Model** kendaraan, serta pastikan **Harga OTR** dan **Uang Muka** sudah terisi untuk menampilkan simulasi kredit.
                 </p>
             </div>
