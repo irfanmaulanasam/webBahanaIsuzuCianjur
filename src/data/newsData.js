@@ -1,5 +1,25 @@
 // src/data/newsData.js
-const newsContent = [
+export const newsContent = [    
+    {
+        id: "dummy1",
+        slug: "promo-spesial-2024",
+        type: "promo", 
+        category: "umum",
+        title: "Promo Spesial Tahun 2024",
+        imageUrl: "/assets/images/placeholder.jpg",
+        date: "2024-01-15",
+        excerpt: "Dapatkan penawaran spesial untuk produk terbaru kami"
+    },
+    {
+        id: "dummy2", 
+        slug: "teknologi-terkini",
+        type: "news",
+        category: "teknologi", 
+        title: "Inovasi Teknologi Terkini",
+        imageUrl: "/assets/images/placeholder.jpg",
+        date: "2024-01-10",
+        excerpt: "Temukan perkembangan terbaru dalam dunia teknologi"
+    },
     // --- PROMO ---
     {
         id: 'p001',
@@ -42,10 +62,30 @@ const newsContent = [
         isPinned: false, 
         content: "<p>Detail berita penghargaan...</p>"
     },
-    // ... Tambahkan data lainnya
+    // Temporary: Tambah data dummy di newsData.js
+    {
+        id: "dummy6",
+        slug: "promo-spesial-2024",
+        type: "promo", 
+        category: "umum",
+        title: "Promo Spesial Tahun 2024",
+        imageUrl: "/assets/images/placeholder.jpg",
+        date: "2024-01-15",
+        excerpt: "Dapatkan penawaran spesial untuk produk terbaru kami"
+    },
+    {
+        id: "dummy7", 
+        slug: "teknologi-terkini",
+        type: "news",
+        category: "teknologi", 
+        title: "Inovasi Teknologi Terkini",
+        imageUrl: "/assets/images/placeholder.jpg",
+        date: "2024-01-10",
+        excerpt: "Temukan perkembangan terbaru dalam dunia teknologi"
+    },
 ];
 // Export semua category yang ada (untuk filtering/tab)
-const allCategories = ['promo', 'event', 'berita'];
+export const allCategories = ['promo', 'event', 'berita'];
 export default {
   newsContent,
   allCategories

@@ -1,6 +1,5 @@
 // src/data/newsUtils.js
-
-import newsData from "./newsData"; // ✅ Default import
+import newsData from "./newsData.js" // ✅ Default import
 
 const { newsContent } = newsData; // Destructure
 

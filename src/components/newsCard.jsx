@@ -1,92 +1,119 @@
-import React from 'react';
+// src/components/NewsCard.jsx
 import { Link } from 'react-router-dom';
-import { Clock, Tag, Calendar } from 'lucide-react';
+import { Calendar, Clock, MapPin, Tag } from 'lucide-react';
 
-// Helper untuk mendapatkan warna badge berdasarkan tipe
+// Helper function untuk badge type (sama seperti di NewsDetailPage)
 const getTypeBadge = (type) => {
-    switch (type) {
-        case 'promo':
-            return 'bg-red-500 text-white';
-        case 'event':
-            return 'bg-blue-500 text-white';
-        case 'berita':
-            return 'bg-green-500 text-white';
-        default:
-            return 'bg-gray-500 text-white';
-    }
+  const baseClasses = "text-xs font-semibold px-2 py-1 rounded";
+  
+  switch (type?.toLowerCase()) {
+    case 'promo':
+      return `${baseClasses} bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300`;
+    case 'event':
+      return `${baseClasses} bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300`;
+    case 'news':
+    default:
+      return `${baseClasses} bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300`;
+  }
 };
 
-export default function NewsCard({ news }) {
-    // Menghitung hari tersisa (Hanya untuk Promo/Event)
-    const getDaysRemaining = (expiryDate) => {
-        if (!expiryDate) return null;
-        const now = new Date();
-        const expiry = new Date(expiryDate);
-        const diffTime = expiry - now;
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+// Helper function untuk format tanggal
+const formatDate = (dateString) => {
+  if (!dateString) return '';
+  
+  const options = { 
+    day: 'numeric', 
+    month: 'long', 
+    year: 'numeric' 
+  };
+  return new Date(dateString).toLocaleDateString('id-ID', options);
+};
+
+const NewsCard = ({ news }) => {
+  if (!news) return null;
+
+  return (
+    <Link 
+      to={`/news/${news.slug}`}
+      className="block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
+    >
+      {/* Gambar Thumbnail */}
+      <div className="relative h-48 w-full overflow-hidden">
+        <img 
+          src={news.imageUrl || '/assets/placeholder.jpg'} 
+          alt={news.title}
+          className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+          onError={(e) => {
+            e.target.src = '/assets/placeholder.jpg';
+          }}
+        />
         
-        if (diffDays <= 0) return 'Telah Berakhir';
-        return `${diffDays} hari lagi`;
-    };
+        {/* Badge Type */}
+        <div className="absolute top-3 left-3">
+          <span className={getTypeBadge(news.type)}>
+            {news.type?.toUpperCase() || 'NEWS'}
+          </span>
+        </div>
+      </div>
 
-    const daysRemaining = news.type !== 'berita' ? getDaysRemaining(news.expiryDate) : null;
-    const isExpired = daysRemaining === 'Telah Berakhir';
-    
-    // URL target untuk detail berita
-    const detailUrl = `/news/${news.slug}`;
+      {/* Konten Card */}
+      <div className="p-4">
+        {/* Judul */}
+        <h3 className="text-lg font-bold text-gray-900 dark:text-white line-clamp-2 mb-2 leading-tight">
+          {news.title}
+        </h3>
 
-    return (
-        // Gunakan <Link> agar card menjadi clickable dan tambahkan efek hover
-        <Link 
-            to={detailUrl} 
-            className={`
-                block overflow-hidden rounded-xl shadow-lg transition-transform duration-300 hover:shadow-2xl hover:-translate-y-1 
-                ${isExpired ? 'opacity-50 cursor-not-allowed' : 'bg-white dark:bg-gray-800'}
-            `}
-        >
-            {/* Area Gambar */}
-            <div className="relative h-48 w-full">
-                {/* Gambar Thumbnail (pastikan path gambar benar) */}
-                <img 
-                    src={news.imageUrl || '/assets/placeholder.jpg'} 
-                    alt={news.title} 
-                    className="w-full h-full object-cover" 
-                />
-                
-                {/* Badge Tipe di Sudut (agar menonjol) */}
-                <span 
-                    className={`absolute top-3 left-3 px-3 py-1 text-xs font-semibold rounded-full ${getTypeBadge(news.type)}`}
-                >
-                    <Tag className="inline w-3 h-3 mr-1" />
-                    {news.type.toUpperCase()}
-                </span>
-                
-                {/* Badge Urgency (untuk Promo/Event) */}
-                {daysRemaining && (
-                    <span 
-                        className={`absolute bottom-0 right-0 px-3 py-1 text-xs font-bold text-white ${isExpired ? 'bg-gray-700' : 'bg-red-600'}`}
-                    >
-                        <Clock className="inline w-3 h-3 mr-1" />
-                        {daysRemaining}
-                    </span>
-                )}
+        {/* Deskripsi Singkat */}
+        {news.excerpt && (
+          <p className="text-gray-600 dark:text-gray-300 text-sm line-clamp-3 mb-3">
+            {news.excerpt}
+          </p>
+        )}
+
+        {/* Metadata */}
+        <div className="space-y-2 text-xs text-gray-500 dark:text-gray-400">
+          {/* Tanggal */}
+          {news.date && (
+            <div className="flex items-center gap-1">
+              <Calendar size={14} />
+              <span>{formatDate(news.date)}</span>
             </div>
+          )}
 
-            {/* Area Konten */}
-            <div className="p-4 sm:p-5">
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 line-clamp-2">
-                    {news.title}
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-3">
-                    {news.summary}
-                </p>
-                
-                {/* Meta Data */}
-                <div className="flex items-center text-xs text-gray-500 dark:text-gray-400 pt-2 border-t dark:border-gray-700">
-                    <Calendar className="w-3 h-3 mr-1" />
-                    <span>{new Date(news.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
-                </div>
+          {/* Waktu (jika ada) */}
+          {news.time && (
+            <div className="flex items-center gap-1">
+              <Clock size={14} />
+              <span>{news.time}</span>
             </div>
-        </Link>
-    );
-}
+          )}
+
+          {/* Lokasi (jika event) */}
+          {news.location && (
+            <div className="flex items-center gap-1">
+              <MapPin size={14} />
+              <span className="line-clamp-1">{news.location}</span>
+            </div>
+          )}
+
+          {/* Kategori */}
+          {news.category && (
+            <div className="flex items-center gap-1">
+              <Tag size={14} />
+              <span>{news.category}</span>
+            </div>
+          )}
+        </div>
+
+        {/* Read More Button */}
+        <div className="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700">
+          <span className="text-blue-600 dark:text-blue-400 text-sm font-medium hover:underline">
+            Baca Selengkapnya →
+          </span>
+        </div>
+      </div>
+    </Link>
+  );
+};
+
+export default NewsCard;

@@ -111,15 +111,27 @@ export const router = createBrowserRouter([
          </Suspense>
          )
       },
-      { path: 'search', element:(
-        <Suspense fallback={<LoadingSpinner/>}>
-          <SearchPage /> 
-         </Suspense>
-         )
-      },
       { path: 'news/:slug', element:(
           <Suspense fallback={<LoadingSpinner/>}>
           <NewsDetailPage /> 
+         </Suspense>
+         )
+      },
+      { path: 'news/promo', element:(
+          <Suspense fallback={<LoadingSpinner/>}>
+          <NewsPages /> 
+         </Suspense>
+         )
+      },
+      { path: 'news/event', element:(
+          <Suspense fallback={<LoadingSpinner/>}>
+          <NewsPages /> 
+         </Suspense>
+         )
+      },
+      { path: 'search', element:(
+        <Suspense fallback={<LoadingSpinner/>}>
+          <SearchPage /> 
          </Suspense>
          )
       },

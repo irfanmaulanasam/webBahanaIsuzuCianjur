@@ -65,7 +65,6 @@ export default function ProductsGrid({ data = productsSummary }) {
             </div>
           ))}
         </div>
-
         {/* empty state */}
         {filtered.length === 0 && (
           <div className="text-center py-10 text-slate-500">Tidak ada produk.</div>
