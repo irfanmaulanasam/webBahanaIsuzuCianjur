@@ -1,11 +1,11 @@
 export const IsuzuPrices = {
-  "SUV":[
+  "Sport Utility Vehicle":[
     { model: "MU-X", price:"559800000", type:"Sport Utility Vehicle"},
   ],
-  "Truck Pick-up":[
-  {model:"Single Cabin MT",price:"413950000", type:"Truck Pick Up"},
-  {model:"Double Cabin MT",price:"524100000", type:"Truck Pick Up"},
-  {model: "dmax-rodeo-m/t",price: "537800000", type:"truck pick up"}
+  "High-PickUp":[
+  {model:"DMAX Single Cabin MT",price:"413950000", type:"Truck Pick Up"},
+  {model:"DMAX Double Cabin MT",price:"524100000", type:"Truck Pick Up"},
+  {model: "DMAX Rodeo MT",price: "537800000", type:"Truck Pick Up"}
   ],
   "Niaga Berat (HCV)": [
     { model: "FTR T", price:"841340000", type: "High Commercial Vehicle" },
@@ -44,7 +44,7 @@ export const IsuzuPrices = {
     { model: "Traga Pick Up (FD)", price:"289000000", type: "Low Commercial Vehicle" },
     { model: "Traga Box Semi Aluminium", price:"330000000", type: "Low Commercial Vehicle" },
     { model: "Traga Box Full Aluminium", price:"336000000", type: "Low Commercial Vehicle" },
-    { model: "Traga Freezer Box", price:"409000000", type: "Low Commercial Vehicle" },
+    { model: "Traga Freezer Box", price:"410000000", type: "Low Commercial Vehicle" },
   ],
 };
 export const getUniqueTypes = () => {
@@ -54,9 +54,11 @@ export const getUniqueTypes = () => {
     if (Array.isArray(group)) {
       group.forEach(item => types.add(item.type));
     } else if (group && typeof group === "object") {
+      // types.add(IsuzuPrices.keys);
       types.add(group.type);
     }
   });
+console.log(IsuzuPrices);
 
   return Array.from(types);
 };

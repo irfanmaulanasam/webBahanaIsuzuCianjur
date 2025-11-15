@@ -166,8 +166,13 @@ export const router = createBrowserRouter([
             <CreditSimulatorPages/> 
          </Suspense>
          )
-},
-      
+      },
+      { path: 'credit-simulator/:slug', element:(
+          <Suspense fallback={<LoadingSpinner/>}>
+            <CreditSimulatorPages/> 
+         </Suspense>
+         )
+      },
       // Rute 404 (Wildcard)
       { path: '*',
         element: <NotFound/> 
